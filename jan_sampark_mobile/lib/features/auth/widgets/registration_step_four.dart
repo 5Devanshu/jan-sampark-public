@@ -182,7 +182,7 @@ class RegistrationStepFour extends StatelessWidget {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('• ',
+                        Text('• ',
                             style: AppTextStyles.captionMedium),
                         Expanded(
                           child: Text(tip,

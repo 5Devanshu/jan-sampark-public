@@ -1,92 +1,88 @@
 // lib/features/voter/dashboard/providers/voter_dashboard_provider.dart
 //
-// Riverpod AsyncNotifier that drives all sections of the dashboard.
-// Fetches all data in parallel and merges into a single VoterDashboardData.
+// Aggregates all dashboard data into a single AsyncNotifier.
+// Fetches profile, complaints, announcements, events,
+// campaigns, and leaderboard in parallel.
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../../core/exceptions/app_exception.dart';
-import '../../../../core/network/api_response.dart';
 import '../models/voter_dashboard_models.dart';
 import '../repositories/voter_dashboard_repository.dart';
 
-// -----------------------------------------------------------------------------
-// Dashboard Notifier
-// -----------------------------------------------------------------------------
-
-class VoterDashboardNotifier extends AsyncNotifier<VoterDashboardData> {
+class VoterDashboardNotifier
+    extends AsyncNotifier<VoterDashboardData> {
   @override
-  Future<VoterDashboardData> build() => _load();
+  Future<VoterDashboardData> build() async {
+    return _fetch();
+  }
 
-  // ---------------------------------------------------------------------------
-  // Private
-  // ---------------------------------------------------------------------------
-
-  Future<VoterDashboardData> _load() async {
+  Future<VoterDashboardData> _fetch() async {
     final repo = ref.read(voterDashboardRepositoryProvider);
 
-    // All six calls fire in parallel — no sequential waterfall.
-    final futures = <Future<ApiResponse<dynamic>>>[
-      repo.fetchProfile(), // [0]
-      repo.fetchComplaintSummary(), // [1]
-      repo.fetchAnnouncements(), // [2]
-      repo.fetchUpcomingEvents(), // [3]
-      repo.fetchActiveCampaigns(), // [4]
-      repo.fetchLeaderboard(), // [5]
-    ];
+    // Fire all requests in parallel
+    final results = await Future.wait([
+      repo.fetchProfile(),
+      repo.fetchComplaintSummary(),
+      repo.fetchAnnouncements(),
+      repo.fetchUpcomingEvents(),
+      repo.fetchActiveCampaigns(),
+      repo.fetchLeaderboard(),
+    ]);
 
-    final results = await Future.wait(futures);
+    final profileRes       = results[0];
+    final complaintRes     = results[1];
+    final announcementsRes = results[2];
+    final eventsRes        = results[3];
+    final campaignsRes     = results[4];
+    final leaderboardRes   = results[5];
 
-    // Graceful degradation — a failed section shows empty, not a
-    // full-screen error. Critical failures (profile) propagate.
-    final profileRes = results[0] as ApiResponse<VoterProfileSummary>;
-    if (profileRes.isError) {
-      throw profileRes.exception ?? const UnknownException();
-    }
+    // Extract data, falling back to empty on error
+    final profile = profileRes.when(
+      success: (data) => data as VoterProfileSummary,
+      error:   (_)    => VoterProfileSummary.empty(),
+    );
 
-    final complaintRes = results[1] as ApiResponse<VoterComplaintSummary>;
-    final announcementsRes =
-        results[2] as ApiResponse<List<DashboardAnnouncement>>;
-    final eventsRes = results[3] as ApiResponse<List<DashboardEvent>>;
-    final campaignsRes = results[4] as ApiResponse<List<DashboardCampaign>>;
-    final leaderboardRes =
-        results[5] as ApiResponse<List<DashboardLeaderboardEntry>>;
+    final complaintSummary = complaintRes.when(
+      success: (data) => data as VoterComplaintSummary,
+      error:   (_)    => VoterComplaintSummary.empty(),
+    );
+
+    final announcements = announcementsRes.when(
+      success: (data) => data as List<DashboardAnnouncement>,
+      error:   (_)    => <DashboardAnnouncement>[],
+    );
+
+    final upcomingEvents = eventsRes.when(
+      success: (data) => data as List<DashboardEvent>,
+      error:   (_)    => <DashboardEvent>[],
+    );
+
+    final activeCampaigns = campaignsRes.when(
+      success: (data) => data as List<DashboardCampaign>,
+      error:   (_)    => <DashboardCampaign>[],
+    );
+
+    final leaderboard = leaderboardRes.when(
+      success: (data) => data as List<DashboardLeaderboardEntry>,
+      error:   (_)    => <DashboardLeaderboardEntry>[],
+    );
 
     return VoterDashboardData(
-      profile: profileRes.data ?? VoterProfileSummary.empty(),
-      complaintSummary:
-          complaintRes.data ?? VoterComplaintSummary.empty(),
-      announcements: announcementsRes.data ?? const [],
-      upcomingEvents: eventsRes.data ?? const [],
-      activeCampaigns: campaignsRes.data ?? const [],
-      leaderboard: leaderboardRes.data ?? const [],
+      profile:          profile,
+      complaintSummary: complaintSummary,
+      announcements:    announcements,
+      upcomingEvents:   upcomingEvents,
+      activeCampaigns:  activeCampaigns,
+      leaderboard:      leaderboard,
     );
   }
 
-  // ---------------------------------------------------------------------------
-  // Public
-  // ---------------------------------------------------------------------------
-
-  /// Pull-to-refresh — re-fetches all sections.
   Future<void> refresh() async {
     state = const AsyncValue.loading();
-    state = await AsyncValue.guard(_load);
+    state = await AsyncValue.guard(_fetch);
   }
 }
-
-// -----------------------------------------------------------------------------
-// Provider
-// -----------------------------------------------------------------------------
 
 final voterDashboardProvider =
     AsyncNotifierProvider<VoterDashboardNotifier, VoterDashboardData>(
   VoterDashboardNotifier.new,
 );
-
-// -----------------------------------------------------------------------------
-// Convenience derived providers
-// (read single sections without rebuilding the whole screen)
-// -----------------------------------------------------------------------------
-
-final voterProfileSummaryProvider = Provider<VoterProfileSummary?>((ref) {
-  return ref.watch(voterDashboardProvider).valueOrNull?.profile;
-});

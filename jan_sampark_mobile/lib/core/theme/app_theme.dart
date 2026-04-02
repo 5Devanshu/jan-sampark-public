@@ -38,7 +38,7 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.surfaceGrey,
 
       // ── App Bar ───────────────────────────────────
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: AppColors.appBarWhite,
         foregroundColor: AppColors.appBarWhiteText,
         elevation: AppDimensions.appBarElevation,
@@ -61,7 +61,7 @@ class AppTheme {
       ),
 
       // ── Bottom Navigation Bar ─────────────────────
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: AppColors.navBarBackground,
         selectedItemColor: AppColors.navBarSelected,
         unselectedItemColor: AppColors.navBarUnselected,
@@ -345,7 +345,7 @@ class AppTheme {
       ),
 
       // ── Tab Bar ───────────────────────────────────
-      tabBarTheme: const TabBarThemeData(
+      tabBarTheme: TabBarThemeData(
         labelColor: AppColors.primary,
         unselectedLabelColor: AppColors.textSecondary,
         indicatorColor: AppColors.primary,
@@ -356,7 +356,7 @@ class AppTheme {
       ),
 
       // ── List Tile ─────────────────────────────────
-      listTileTheme: const ListTileThemeData(
+      listTileTheme: ListTileThemeData(
         contentPadding: EdgeInsets.symmetric(
           horizontal: AppDimensions.pagePaddingH,
           vertical: AppDimensions.spaceXS,

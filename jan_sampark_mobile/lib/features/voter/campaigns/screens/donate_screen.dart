@@ -176,7 +176,7 @@ class _DonateScreenState extends ConsumerState<DonateScreen> {
                 ),
                 textInputAction: TextInputAction.next,
                 validator: Validators.donationAmount,
-                prefixIcon: const Padding(
+                prefixIcon: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 14),
                   child: Text('₹', style: AppTextStyles.heading3),
                 ),
