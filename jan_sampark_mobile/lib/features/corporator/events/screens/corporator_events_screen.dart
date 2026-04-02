@@ -59,7 +59,7 @@ class _CorporatorEventsScreenState
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () =>
-            context.goNamed(RouteNames.corporatorCreateEvent),
+            context.goNamed(RouteNames.corpCreateEvent),
         backgroundColor: AppColors.primary,
         icon:  const Icon(Icons.add_rounded, color: Colors.white),
         label: Text('Create Event',
@@ -115,7 +115,7 @@ class _CorporatorEventsScreenState
         subtitle:    'Create an event for your area voters.',
         actionLabel: 'Create Event',
         onAction:    () =>
-            context.goNamed(RouteNames.corporatorCreateEvent),
+            context.goNamed(RouteNames.corpCreateEvent),
       );
     }
 
@@ -175,7 +175,7 @@ class _CorporatorEventsScreenState
                   right:  AppDimensions.cardPaddingH,
                   child: GestureDetector(
                     onTap: () => context.goNamed(
-                      RouteNames.corporatorEventAttendance,
+                      RouteNames.attendanceManagement,
                       pathParameters: {'id': e.id},
                     ),
                     child: Container(

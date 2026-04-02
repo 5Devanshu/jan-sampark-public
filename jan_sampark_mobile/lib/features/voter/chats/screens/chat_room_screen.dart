@@ -37,8 +37,9 @@ class _ChatRoomScreenState extends ConsumerState<ChatRoomScreen> {
 
     _scrollCtrl.addListener(() {
       // Show scroll-to-bottom FAB when scrolled up
-      final showButton = _scrollCtrl.position.pixels 
-          _scrollCtrl.position.maxScrollExtent - 300;
+      final showButton =
+          _scrollCtrl.position.pixels <
+              _scrollCtrl.position.maxScrollExtent - 300;
       if (showButton != _showScrollToBottom) {
         setState(() => _showScrollToBottom = showButton);
       }

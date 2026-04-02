@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
 import '../../core/theme/app_dimensions.dart';
+import '../../core/theme/app_theme.dart';
 
 /// Standard scaffold wrapper used by all screens.
 ///
@@ -109,5 +110,3 @@ class AppScaffold extends StatelessWidget {
     );
   }
 }
-
-import '../../core/theme/app_theme.dart';

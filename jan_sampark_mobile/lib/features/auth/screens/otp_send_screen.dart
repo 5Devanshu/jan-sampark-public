@@ -17,14 +17,14 @@ import '../providers/auth_notifier.dart';
 /// On success navigates to the correct home screen based on role.
 /// GoRouter redirect handles role routing automatically after
 /// authProvider state is updated.
-class LoginScreen extends ConsumerStatefulWidget {
-  const LoginScreen({super.key});
+class OtpSendScreen extends ConsumerStatefulWidget {
+  const OtpSendScreen({super.key});
 
   @override
-  ConsumerState<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<OtpSendScreen> createState() => _OtpSendScreenState();
 }
 
-class _LoginScreenState extends ConsumerState<LoginScreen> {
+class _OtpSendScreenState extends ConsumerState<OtpSendScreen> {
   final _formKey   = GlobalKey<FormState>();
   final _mobileCtrl  = TextEditingController();
   final _passwordCtrl = TextEditingController();
@@ -97,7 +97,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   children: [
                     // Back button
                     GestureDetector(
-                      onTap: () => context.pop(),
+                      onTap: () => Navigator.of(context).pop(),
                       child: Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(

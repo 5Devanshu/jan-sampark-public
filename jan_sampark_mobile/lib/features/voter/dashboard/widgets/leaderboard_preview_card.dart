@@ -57,7 +57,7 @@ class LeaderboardPreviewCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 10),
-                  Text('Community Leaderboard', style: AppTextStyles.labelMedium),
+                  Text('Community Leaderboard', style: AppTextStyles.bodyMedium),
                 ],
               ),
             ),
@@ -160,15 +160,15 @@ class _LeaderboardRow extends StatelessWidget {
                         Text(
                           entry.role[0].toUpperCase() +
                               entry.role.substring(1),
-                          style: AppTextStyles.captionSmall,
+                          style: AppTextStyles.caption,
                         ),
                         if (entry.wardName != null) ...[
                           Text(' · ',
-                              style: AppTextStyles.captionSmall),
+                              style: AppTextStyles.caption),
                           Expanded(
                             child: Text(
                               entry.wardName!,
-                              style:    AppTextStyles.captionSmall,
+                              style:AppTextStyles.caption,
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
@@ -199,7 +199,7 @@ class _LeaderboardRow extends StatelessWidget {
                     const SizedBox(width: 3),
                     Text(
                       '${entry.points}',
-                      style: AppTextStyles.captionSmall.copyWith(
+                      style: AppTextStyles.caption.copyWith(
                         color:      AppColors.primary,
                         fontWeight: FontWeight.w700,
                       ),

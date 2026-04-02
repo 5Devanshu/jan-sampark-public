@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import '../../features/auth/screens/ops_login_screen.dart';
-import '../../features/dashboard/screens/ops_dashboard_screen.dart';
-import '../../features/corporators/screens/corporators_screen.dart';
-import '../../features/corporators/screens/create_corporator_screen.dart';
-import '../../features/corporators/screens/corporator_detail_screen.dart';
-import '../../features/masters/screens/areas_screen.dart';
-import '../../features/masters/screens/wards_screen.dart';
-import '../../features/masters/screens/complaint_categories_screen.dart';
-import '../../features/masters/screens/helpline_master_screen.dart';
-import '../../shared/widgets/ops_shell.dart';
-import '../constants/ops_constants.dart';
+import 'package:jan_sampark_ops/features/auth/screens/ops_login_screen.dart';
+import 'package:jan_sampark_ops/features/dashboard/screens/ops_dashboard_screen.dart';
+import 'package:jan_sampark_ops/features/corporators/screens/corporators_screen.dart';
+import 'package:jan_sampark_ops/features/corporators/screens/create_corporator_screen.dart';
+import 'package:jan_sampark_ops/features/corporators/screens/corporator_detail_screen.dart';
+import 'package:jan_sampark_ops/features/masters/screens/areas_screen.dart';
+import 'package:jan_sampark_ops/features/masters/screens/wards_screen.dart';
+import 'package:jan_sampark_ops/features/masters/screens/complaint_categories_screen.dart';
+import 'package:jan_sampark_ops/features/masters/screens/helpline_master_screen.dart';
+import 'package:jan_sampark_ops/shared/widgets/ops_shell.dart';
+import 'package:jan_sampark_ops/core/constants/ops_constants.dart';
 
 // ─────────────────────────────────────────────
 // Route names

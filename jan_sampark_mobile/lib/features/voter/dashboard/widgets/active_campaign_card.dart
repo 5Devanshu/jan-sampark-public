@@ -86,7 +86,7 @@ class ActiveCampaignCard extends StatelessWidget {
                 ),
                 child: Text(
                   'Active Campaign',
-                  style: AppTextStyles.captionSmall.copyWith(
+                  style: AppTextStyles.caption.copyWith(
                     color: AppColors.white,
                   ),
                 ),
@@ -101,7 +101,7 @@ class ActiveCampaignCard extends StatelessWidget {
                 children: [
                   Text(
                     campaign.title,
-                    style:    AppTextStyles.labelMedium,
+                    style:AppTextStyles.bodyMedium,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -123,7 +123,7 @@ class ActiveCampaignCard extends StatelessWidget {
                           ),
                           Text(
                             '${(progress * 100).toStringAsFixed(0)}%',
-                            style: AppTextStyles.captionSmall.copyWith(
+                            style:AppTextStyles.caption.copyWith(
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -146,7 +146,7 @@ class ActiveCampaignCard extends StatelessWidget {
                       const SizedBox(height: 3),
                       Text(
                         'of ${_currency.format(campaign.targetAmount)} goal',
-                        style: AppTextStyles.captionSmall,
+                        style: AppTextStyles.caption,
                       ),
                     ],
                   ),
@@ -165,7 +165,7 @@ class ActiveCampaignCard extends StatelessWidget {
                         const SizedBox(width: 3),
                         Text(
                           'Ends ${DateFormat('d MMM').format(campaign.deadline!)}',
-                          style: AppTextStyles.captionSmall,
+                          style: AppTextStyles.caption,
                         ),
                       ],
                     ),

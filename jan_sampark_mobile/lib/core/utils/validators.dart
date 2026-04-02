@@ -1,6 +1,6 @@
 /// Form field validators for Jan Sampark.
 ///
-/// All validators follow Flutter's FormField pattern —
+/// All validators follow Flutter's FormField pattern:
 /// return null for valid, return error string for invalid.
 ///
 /// Usage:
@@ -8,10 +8,7 @@
 class Validators {
   Validators._();
 
-  // ─────────────────────────────────────────────
   // Mobile
-  // ─────────────────────────────────────────────
-
   static String? mobile(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Mobile number is required.';
@@ -23,10 +20,7 @@ class Validators {
     return null;
   }
 
-  // ─────────────────────────────────────────────
   // OTP
-  // ─────────────────────────────────────────────
-
   static String? otp(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'OTP is required.';
@@ -37,10 +31,7 @@ class Validators {
     return null;
   }
 
-  // ─────────────────────────────────────────────
   // Password
-  // ─────────────────────────────────────────────
-
   static String? password(String? value) {
     if (value == null || value.isEmpty) {
       return 'Password is required.';
@@ -57,16 +48,14 @@ class Validators {
     if (!RegExp(r'\d').hasMatch(value)) {
       return 'Password must contain a digit.';
     }
-    if (!RegExp(r'[!@#\$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?]').hasMatch(value)) {
+    if (!RegExp(r"[!@#\$%^&*()_+\-=\[\]{};':\\|,.<>\/?]")
+        .hasMatch(value)) {
       return 'Password must contain a special character.';
     }
     return null;
   }
 
-  // ─────────────────────────────────────────────
   // Required text fields
-  // ─────────────────────────────────────────────
-
   static String? Function(String?) required(String fieldName) {
     return (String? value) {
       if (value == null || value.trim().isEmpty) {
@@ -97,10 +86,7 @@ class Validators {
     };
   }
 
-  // ─────────────────────────────────────────────
   // Name
-  // ─────────────────────────────────────────────
-
   static String? fullName(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Full name is required.';
@@ -114,10 +100,7 @@ class Validators {
     return null;
   }
 
-  // ─────────────────────────────────────────────
   // Date of Birth
-  // ─────────────────────────────────────────────
-
   static String? dateOfBirth(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Date of birth is required.';
@@ -126,40 +109,42 @@ class Validators {
       return 'Enter date in YYYY-MM-DD format.';
     }
     try {
-      final dob   = DateTime.parse(value.trim());
+      final dob = DateTime.parse(value.trim());
       final today = DateTime.now();
-      final age   = today.year - dob.year -
+
+      final age = today.year - dob.year -
           ((today.month < dob.month ||
                   (today.month == dob.month && today.day < dob.day))
               ? 1
               : 0);
-      if (age < 18) return 'You must be at least 18 years old to register.';
-      if (age > 120) return 'Please enter a valid date of birth.';
+
+      if (age < 18) {
+        return 'You must be at least 18 years old to register.';
+      }
+      if (age > 120) {
+        return 'Please enter a valid date of birth.';
+      }
     } catch (_) {
       return 'Please enter a valid date.';
     }
     return null;
   }
 
-  // ─────────────────────────────────────────────
   // Amount (donations)
-  // ─────────────────────────────────────────────
-
   static String? donationAmount(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Amount is required.';
     }
     final amount = double.tryParse(value.trim());
     if (amount == null) return 'Enter a valid amount.';
-    if (amount <= 0)    return 'Amount must be greater than zero.';
-    if (amount > 10000000) return 'Amount seems too large. Please verify.';
+    if (amount <= 0) return 'Amount must be greater than zero.';
+    if (amount > 10000000) {
+      return 'Amount seems too large. Please verify.';
+    }
     return null;
   }
 
-  // ─────────────────────────────────────────────
   // UPI Transaction ID
-  // ─────────────────────────────────────────────
-
   static String? upiTransactionId(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'UPI transaction ID is required.';
@@ -173,10 +158,7 @@ class Validators {
     return null;
   }
 
-  // ─────────────────────────────────────────────
   // Complaint fields
-  // ─────────────────────────────────────────────
-
   static String? complaintTitle(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Title is required.';
@@ -203,10 +185,7 @@ class Validators {
     return null;
   }
 
-  // ─────────────────────────────────────────────
   // Compose validators
-  // ─────────────────────────────────────────────
-
   /// Run multiple validators in sequence, return first error.
   static String? Function(String?) compose(
     List<String? Function(String?)> validators,

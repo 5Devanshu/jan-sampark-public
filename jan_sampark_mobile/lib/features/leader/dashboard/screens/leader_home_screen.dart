@@ -10,6 +10,7 @@ import '../../../../shared_widgets/layout/section_header.dart';
 import '../providers/leader_dashboard_provider.dart';
 import '../widgets/leader_summary_row.dart';
 import '../widgets/assigned_complaints_preview.dart';
+import '../models/leader_models.dart';
 
 class LeaderHomeScreen extends ConsumerWidget {
   const LeaderHomeScreen({super.key});
@@ -158,7 +159,7 @@ class _LocationBanner extends StatelessWidget {
 
 class _QuickActions extends StatelessWidget {
   const _QuickActions({this.profile});
-  final leaderProfile;
+  final LeaderProfile? profile;
 
   @override
   Widget build(BuildContext context) {
@@ -298,4 +299,3 @@ class _SummarySkeleton extends StatelessWidget {
   }
 }
 
-import '../models/leader_models.dart';

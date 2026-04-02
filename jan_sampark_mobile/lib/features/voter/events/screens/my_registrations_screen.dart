@@ -9,6 +9,7 @@ import '../../../../shared_widgets/layout/app_scaffold.dart';
 import '../../../../shared_widgets/layout/empty_state_widget.dart';
 import '../../../../shared_widgets/cards/event_card.dart';
 import '../providers/event_provider.dart';
+import '../models/event_models.dart';
 
 /// Standalone "My Registrations" screen.
 /// Used when navigating directly to registered events.
@@ -212,4 +213,3 @@ class _RegistrationCard extends StatelessWidget {
   }
 }
 
-import '../models/event_models.dart';

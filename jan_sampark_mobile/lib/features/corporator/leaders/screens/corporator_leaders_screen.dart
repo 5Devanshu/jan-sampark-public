@@ -163,7 +163,7 @@ class _CorporatorLeadersScreenState
           return _LeaderTile(
             leader: l,
             onTap:  () => context.goNamed(
-              RouteNames.corporatorLeaderDetail,
+              RouteNames.leaderDetail,
               pathParameters: {'id': l.id},
             ),
           );

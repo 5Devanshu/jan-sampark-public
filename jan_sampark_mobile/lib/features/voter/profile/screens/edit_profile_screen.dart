@@ -14,7 +14,8 @@ import '../../../../core/theme/app_dimensions.dart';
 import '../../../../shared_widgets/inputs/app_text_field.dart';
 import '../../../../shared_widgets/inputs/app_dropdown.dart';
 import '../../../../shared_widgets/buttons/primary_button.dart';
-import '../../../../features/auth/providers/auth_notifier.dart';
+import 'package:jan_sampark_mobile/features/auth/providers/auth_notifier.dart'
+    as auth;
 import '../models/voter_profile_models.dart';
 import '../providers/voter_profile_provider.dart';
 
@@ -174,7 +175,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen>
           backgroundColor: AppColors.success,
         ),
       );
-      context.pop();
+      Navigator.of(context).pop();
     }
   }
 
@@ -184,7 +185,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen>
       backgroundColor: AppColors.surfaceGrey,
       appBar: AppBar(
         title:   const Text('Edit Profile'),
-        leading: BackButton(onPressed: () => context.pop()),
+        leading: BackButton(onPressed: () => Navigator.of(context).pop()),
         bottom: TabBar(
           controller:    _tabs,
           indicatorColor: AppColors.primary,
@@ -264,7 +265,7 @@ class _BasicTab extends StatelessWidget {
   });
 
   final TextEditingController nameCtrl;
-  final String?               language;
+  final String?language;
   final void Function(String?) onLanguageChanged;
 
   static const _langItems = {
@@ -281,7 +282,10 @@ class _BasicTab extends StatelessWidget {
           controller:  nameCtrl,
           label:       'Full Name',
           hint:        'Enter your full name',
-          prefixIcon:  Icons.person_outline,
+          prefixIcon:  const Icon(
+            Icons.person_outline,
+            size: AppDimensions.iconMD,
+          ),
           validator:   (v) => (v?.trim().isEmpty ?? true)
               ? 'Name is required' : null,
         ),
@@ -310,16 +314,16 @@ class _LocationTab extends ConsumerWidget {
     required this.onWardChanged,
   });
 
-  final String?              selectedAreaId;
-  final String?              selectedWardId;
+  final String?selectedAreaId;
+  final String?selectedWardId;
   final void Function(String?) onAreaChanged;
   final void Function(String?) onWardChanged;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final areasAsync = ref.watch(areasProvider);
+    final areasAsync = ref.watch(auth.areasProvider);
     final wardsAsync = ref.watch(
-        wardsForAreaProvider(selectedAreaId ?? ''));
+        auth.wardsForAreaProvider(selectedAreaId ?? ''));
 
     return ListView(
       padding: const EdgeInsets.all(AppDimensions.pagePaddingH),
@@ -360,7 +364,7 @@ class _LocationTab extends ConsumerWidget {
           loading: () => const LinearProgressIndicator(),
           error:   (_, __) => const SizedBox.shrink(),
           data: (wards) => AppDropdown<String>(
-            label:    'Ward',
+            label:'Ward',
             hint:     selectedAreaId == null
                 ? 'Select area first'
                 : 'Select your ward',
@@ -369,7 +373,7 @@ class _LocationTab extends ConsumerWidget {
               value: w.id,
               child: Text(w.wardName),
             )).toList(),
-            onChanged: wards.isEmpty ? null : onWardChanged,
+            onChanged: wards.isEmpty ? (_) {} : onWardChanged,
           ),
         ),
       ],
@@ -452,7 +456,10 @@ class _DemographicsTab extends StatelessWidget {
           controller: dobCtrl,
           label:      'Date of Birth',
           hint:       'YYYY-MM-DD',
-          prefixIcon: Icons.calendar_today_outlined,
+          prefixIcon: const Icon(
+            Icons.calendar_today_outlined,
+            size: AppDimensions.iconMD,
+          ),
           keyboardType: TextInputType.datetime,
           validator: (v) {
             if (v == null || v.isEmpty) return null;

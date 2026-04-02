@@ -142,7 +142,7 @@ extension IntExtensions on int {
 }
 
 extension DoubleExtensions on double {
-  double get asPercent => clamp(0.0, 100.0);
+  double get asPercent => clamp(0.0, 100.0).toDouble();
   SizedBox get h => SizedBox(height: this);
   SizedBox get w => SizedBox(width: this);
 }

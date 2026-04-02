@@ -5,6 +5,8 @@ import '../constants/app_constants.dart';
 import 'auth_interceptor.dart';
 import 'error_interceptor.dart';
 import 'refresh_interceptor.dart';
+import '../exceptions/app_exception.dart';
+import 'api_response.dart';
 
 /// The singleton Dio HTTP client for Jan Sampark.
 ///
@@ -151,5 +153,3 @@ abstract class BaseRepository {
 // ─────────────────────────────────────────────
 // Imports needed in this file
 // ─────────────────────────────────────────────
-import '../exceptions/app_exception.dart';
-import 'api_response.dart';

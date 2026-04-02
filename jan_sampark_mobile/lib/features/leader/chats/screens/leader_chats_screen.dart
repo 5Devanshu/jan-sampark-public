@@ -49,7 +49,7 @@ class _LeaderChatsScreenState extends ConsumerState<LeaderChatsScreen> {
         title: Text('Community Chats', style: AppTextStyles.appBarTitle),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => context.goNamed(RouteNames.leaderCreateChat),
+        onPressed: () => context.goNamed(RouteNames.createChat),
         backgroundColor: AppColors.primary,
         icon: const Icon(Icons.add_rounded, color: Colors.white),
         label: Text('New Chat', style: AppTextStyles.buttonMedium),
@@ -96,7 +96,7 @@ class _LeaderChatsScreenState extends ConsumerState<LeaderChatsScreen> {
         title: 'No Chats Yet',
         subtitle: 'Create a community chat for your ward voters.',
         actionLabel: 'Create Chat',
-        onAction: () => context.goNamed(RouteNames.leaderCreateChat),
+        onAction: () => context.goNamed(RouteNames.createChat),
       );
     }
 

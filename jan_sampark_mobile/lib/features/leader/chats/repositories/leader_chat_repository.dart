@@ -3,7 +3,7 @@ import '../../../../core/constants/app_constants.dart';
 import '../../../../core/network/api_response.dart';
 import '../../../../core/network/dio_client.dart';
 import '../../../voter/chats/models/chat_models.dart';
-import '../../../voter/chats/repositories/chat_repository.dart'
+import '../../../voter/chats/repository/chat_repository.dart'
     show ChatRepository;
 import '../models/leader_chat_models.dart';
 

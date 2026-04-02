@@ -200,25 +200,25 @@ class _DetailContent extends ConsumerWidget {
           ComplaintActionBar(
             complaint: complaint,
             onAcknowledge: () => context
-                .goNamed(
+                .pushNamed(
                   RouteNames.acknowledgeComplaint,
                   pathParameters: {'id': complaintId},
                 )
                 .then((_) => _refresh(ref)),
             onEscalate: () => context
-                .goNamed(
+                .pushNamed(
                   RouteNames.escalateComplaint,
                   pathParameters: {'id': complaintId},
                 )
                 .then((_) => _refresh(ref)),
             onAddNote: () => context
-                .goNamed(
+                .pushNamed(
                   RouteNames.addComplaintNote,
                   pathParameters: {'id': complaintId},
                 )
                 .then((_) => _refresh(ref)),
             onReject: () => context
-                .goNamed(
+                .pushNamed(
                   RouteNames.rejectComplaint,
                   pathParameters: {'id': complaintId},
                 )

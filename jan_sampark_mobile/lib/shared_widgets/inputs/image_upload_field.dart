@@ -4,6 +4,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
 import '../../core/theme/app_dimensions.dart';
 import '../../core/utils/file_picker_helper.dart';
+import '../../core/utils/extensions.dart';
 
 /// Image upload box with preview, remove, and camera/gallery choice.
 ///
@@ -278,5 +279,3 @@ class _RemoveButton extends StatelessWidget {
   }
 }
 
-// Bring extension into scope
-import '../../core/utils/extensions.dart';

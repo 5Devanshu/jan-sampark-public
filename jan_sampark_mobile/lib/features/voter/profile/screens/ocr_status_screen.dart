@@ -238,7 +238,7 @@ class _OcrDetailViewState extends ConsumerState<_OcrDetailView> {
           Center(
             child: Text(
               'Maximum 3 retry attempts allowed.',
-              style: AppTextStyles.captionSmall.copyWith(
+              style: AppTextStyles.caption.copyWith(
                 color: AppColors.textDisabled,
               ),
             ),

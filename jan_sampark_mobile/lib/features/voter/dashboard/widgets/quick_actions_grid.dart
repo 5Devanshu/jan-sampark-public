@@ -148,7 +148,7 @@ class _QuickActionTile extends StatelessWidget {
           const SizedBox(height: 7),
           Text(
             action.label,
-            style:     AppTextStyles.captionSmall,
+            style:     AppTextStyles.bodyMedium,
             textAlign: TextAlign.center,
             maxLines:  2,
             overflow:  TextOverflow.ellipsis,

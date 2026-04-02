@@ -9,6 +9,7 @@ import '../../../../core/utils/extensions.dart';
 import '../../../../shared_widgets/cards/campaign_card.dart';
 import '../../../../shared_widgets/layout/empty_state_widget.dart';
 import '../providers/campaign_provider.dart';
+import '../widgets/donation_status_card.dart';
 
 /// Voter campaigns screen — shows all active campaigns.
 ///
@@ -271,4 +272,3 @@ class _MyDonationsTab extends ConsumerWidget {
 }
 
 // Imports
-import '../widgets/donation_status_card.dart';

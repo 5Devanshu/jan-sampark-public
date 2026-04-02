@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/app_constants.dart';
 import '../../../../core/exceptions/app_exception.dart';
@@ -97,7 +98,7 @@ final createHelplineProvider = StateNotifierProvider
 
 class HelplineActionNotifier extends StateNotifier<bool> {
   HelplineActionNotifier(this._dio) : super(false);
-  final dio;
+  final Dio _dio;
 
   Future<bool> toggleActive(
       String id, {required bool isActive}) async {

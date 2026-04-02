@@ -11,6 +11,7 @@ import '../../../../core/router/route_names.dart';
 import '../../../../shared_widgets/buttons/primary_button.dart';
 import '../providers/voter_profile_provider.dart';
 import '../widgets/verification_step_indicator.dart';
+import '../models/voter_profile_models.dart';
 
 class CaptchaScreen extends ConsumerStatefulWidget {
   const CaptchaScreen({super.key});

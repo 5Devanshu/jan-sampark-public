@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import '../constants/app_constants.dart';
 import '../storage/secure_storage.dart';
 import 'api_constants.dart';
-
+import '../exceptions/app_exception.dart';
 /// Handles automatic token refresh on 401 responses.
 ///
 /// Flow:
@@ -138,4 +138,3 @@ class RefreshInterceptor extends Interceptor {
 }
 
 // Bring SessionExpiredException into scope
-import '../exceptions/app_exception.dart';

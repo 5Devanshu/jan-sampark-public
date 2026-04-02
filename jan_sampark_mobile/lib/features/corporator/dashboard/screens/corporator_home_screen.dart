@@ -12,6 +12,8 @@ import '../widgets/area_stats_card.dart';
 import '../widgets/analytics_chart_row.dart';
 import '../widgets/demographic_breakdown.dart';
 import '../widgets/corporator_quick_actions.dart';
+import '../models/corporator_models.dart';
+
 
 class CorporatorHomeScreen extends ConsumerWidget {
   const CorporatorHomeScreen({super.key});
@@ -288,4 +290,3 @@ class _LeaderRow extends StatelessWidget {
   }
 }
 
-import '../models/corporator_models.dart';

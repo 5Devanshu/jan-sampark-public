@@ -7,8 +7,8 @@ import '../../../../core/theme/app_dimensions.dart';
 import '../../../../core/router/route_names.dart';
 import '../../../../shared_widgets/cards/complaint_card.dart';
 import '../../../../shared_widgets/layout/empty_state_widget.dart';
-import '../../dashboard/providers/leader_complaint_provider.dart';
-import '../../dashboard/widgets/complaint_filter_sheet.dart';
+import '../providers/leader_complaint_provider.dart';
+import '../widgets/complaint_filter_sheet.dart';
 
 class LeaderComplaintsScreen extends ConsumerStatefulWidget {
   const LeaderComplaintsScreen({super.key});

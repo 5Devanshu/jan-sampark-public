@@ -1,4 +1,6 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'dart:async';
+
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import '../storage/secure_storage.dart';
 import '../storage/local_storage.dart';
@@ -18,7 +20,10 @@ class RouteGuard {
 
   /// The main redirect function passed to GoRouter.
   /// Called on every navigation event.
-  static Future<String?> redirect(GoRouterState state) async {
+  static FutureOr<String?> redirect(
+    BuildContext context,
+    GoRouterState state,
+  ) async {
     final path = state.matchedLocation;
     final isAuth = _isAuthRoute(path);
 

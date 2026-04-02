@@ -57,7 +57,7 @@ class _LeaderEventsScreenState extends ConsumerState<LeaderEventsScreen> {
         title: Text('Events', style: AppTextStyles.appBarTitle),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => context.goNamed(RouteNames.leaderCreateEvent),
+        onPressed: () => context.goNamed(RouteNames.createEvent),
         backgroundColor: AppColors.primary,
         icon: const Icon(Icons.add_rounded, color: Colors.white),
         label: Text('Create Event', style: AppTextStyles.buttonMedium),
@@ -111,7 +111,7 @@ class _LeaderEventsScreenState extends ConsumerState<LeaderEventsScreen> {
         title: 'No Events',
         subtitle: 'Create the first event for your ward.',
         actionLabel: 'Create Event',
-        onAction: () => context.goNamed(RouteNames.leaderCreateEvent),
+        onAction: () => context.goNamed(RouteNames.createEvent),
       );
     }
 

@@ -212,7 +212,7 @@ class _StepTile extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 8),
-                  Text(info.title, style: AppTextStyles.labelMedium),
+                  Text(info.title, style: AppTextStyles.bodyMedium),
                 ]),
                 const SizedBox(height: 3),
                 Text(info.desc, style: AppTextStyles.caption),

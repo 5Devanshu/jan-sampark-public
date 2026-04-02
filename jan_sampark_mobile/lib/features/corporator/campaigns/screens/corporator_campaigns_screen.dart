@@ -8,6 +8,8 @@ import '../../../../core/router/route_names.dart';
 import '../../../../shared_widgets/cards/campaign_card.dart';
 import '../../../../shared_widgets/layout/empty_state_widget.dart';
 import '../providers/corporator_campaign_provider.dart';
+import '../../../voter/campaigns/models/campaign_models.dart';
+import '../../../voter/campaigns/providers/campaign_provider.dart';
 
 /// Corporator campaign list with Create FAB and
 /// "Pending Donations" badge.
@@ -95,7 +97,7 @@ class _CorporatorCampaignsScreenState
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () =>
-            context.goNamed(RouteNames.corporatorCreateCampaign),
+            context.goNamed(RouteNames.createCampaign),
         backgroundColor: AppColors.primary,
         icon:  const Icon(Icons.add_rounded, color: Colors.white),
         label: Text('Create Campaign',
@@ -126,7 +128,7 @@ class _CampaignListTab extends ConsumerWidget {
     required this.scrollCtrl,
   });
 
-  final campaignListState state;
+  final CampaignListState state;
   final ScrollController  scrollCtrl;
 
   @override
@@ -165,7 +167,7 @@ class _CampaignListTab extends ConsumerWidget {
         subtitle:    'Create the first fundraising campaign for your area.',
         actionLabel: 'Create Campaign',
         onAction: () => context.goNamed(
-            RouteNames.corporatorCreateCampaign),
+            RouteNames.createCampaign),
       );
     }
 
@@ -211,7 +213,7 @@ class _CampaignListTab extends ConsumerWidget {
             endDate:         c.endDate,
             coverImageUrl:   c.coverImageUrl,
             onTap: () => context.goNamed(
-              RouteNames.corporatorCampaignDetail,
+              RouteNames.corpCampaignDetail,
               pathParameters: {'id': c.id},
             ),
           );
@@ -220,8 +222,6 @@ class _CampaignListTab extends ConsumerWidget {
     );
   }
 }
-
-import '../providers/corporator_campaign_provider.dart';
 
 // ─────────────────────────────────────────────
 // Pending Donations Tab
@@ -477,4 +477,3 @@ class _PendingDonationTile extends ConsumerWidget {
   }
 }
 
-import '../../../voter/campaigns/models/campaign_models.dart';

@@ -11,6 +11,7 @@ import '../../../shared_widgets/buttons/primary_button.dart';
 import '../../../shared_widgets/buttons/text_button_link.dart';
 import '../../../shared_widgets/inputs/otp_input_field.dart';
 import '../providers/otp_notifier.dart';
+import '../../../core/constants/app_constants.dart';
 
 /// Screen 2 of registration: enter the 6-digit OTP.
 ///
@@ -95,7 +96,7 @@ class _OtpVerifyScreenState extends ConsumerState<OtpVerifyScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
-                    onTap: () => context.pop(),
+                    onTap: () => Navigator.of(context).pop(),
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
@@ -250,4 +251,3 @@ class _OtpVerifyScreenState extends ConsumerState<OtpVerifyScreen> {
   }
 }
 
-import '../../../core/constants/app_constants.dart';

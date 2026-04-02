@@ -217,7 +217,7 @@ class _NotificationsScreenState
         // Works for all roles — GoRouter redirects to
         // the correct detail screen based on current role
         context.pushNamed(
-          RouteNames.voterComplaintDetail,
+          RouteNames.complaintDetail,
           pathParameters: {'id': n.referenceId!},
         );
 

@@ -90,7 +90,7 @@ class AnnouncementFeedCard extends StatelessWidget {
                         ),
                         child: Text(
                           item.category.toUpperCase(),
-                          style: AppTextStyles.captionSmall.copyWith(
+                          style: AppTextStyles.caption.copyWith(
                             color:      _categoryColor,
                             fontWeight: FontWeight.w700,
                             fontSize:   9,
@@ -108,7 +108,7 @@ class AnnouncementFeedCard extends StatelessWidget {
                         const SizedBox(width: 3),
                         Text(
                           'Read',
-                          style: AppTextStyles.captionSmall.copyWith(
+                          style: AppTextStyles.caption.copyWith(
                             color: AppColors.success,
                           ),
                         ),
@@ -121,7 +121,7 @@ class AnnouncementFeedCard extends StatelessWidget {
                   // ── Title ─────────────────────
                   Text(
                     item.title,
-                    style:    AppTextStyles.labelMedium,
+                    style:AppTextStyles.bodyMedium,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -150,7 +150,7 @@ class AnnouncementFeedCard extends StatelessWidget {
                       Expanded(
                         child: Text(
                           item.createdByName ?? 'Official',
-                          style:    AppTextStyles.captionSmall,
+                          style: AppTextStyles.caption,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -162,7 +162,7 @@ class AnnouncementFeedCard extends StatelessWidget {
                       const SizedBox(width: 3),
                       Text(
                         '${item.viewCount}',
-                        style: AppTextStyles.captionSmall,
+                        style:AppTextStyles.caption,
                       ),
                     ],
                   ),

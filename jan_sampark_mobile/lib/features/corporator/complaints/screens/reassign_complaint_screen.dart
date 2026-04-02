@@ -39,7 +39,7 @@ final _leadersForReassignProvider =
     FutureProvider.autoDispose<List<_LeaderOption>>((ref) async {
   final dio = ref.watch(dioProvider);
   final res = await dio.get(
-    AppConstants.endpointUsers,
+    AppConstants.endpointLeaders,
     queryParameters: {'role': 'leader', 'page_size': 100},
   );
   final data = res.data as Map<String, dynamic>;

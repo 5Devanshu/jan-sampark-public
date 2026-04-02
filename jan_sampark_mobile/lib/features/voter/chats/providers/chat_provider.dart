@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/exceptions/app_exception.dart';
+import '../../../../core/network/api_response.dart';
 import '../models/chat_models.dart';
-import '../repositories/chat_repository.dart';
+import '../repository/chat_repository.dart';
 
 // ─────────────────────────────────────────────
 // Chat List State

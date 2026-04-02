@@ -54,7 +54,7 @@ class _LeaderAnnouncementsScreenState
         title: Text('Announcements', style: AppTextStyles.appBarTitle),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => context.goNamed(RouteNames.leaderCreateAnnouncement),
+        onPressed: () => context.goNamed(RouteNames.createLeaderAnnouncement),
         backgroundColor: AppColors.primary,
         icon: const Icon(Icons.add_rounded, color: Colors.white),
         label: Text('New Announcement', style: AppTextStyles.buttonMedium),
@@ -110,7 +110,7 @@ class _LeaderAnnouncementsScreenState
         title: 'No Announcements',
         subtitle: 'Create the first announcement for your ward.',
         actionLabel: 'Create Announcement',
-        onAction: () => context.goNamed(RouteNames.leaderCreateAnnouncement),
+        onAction: () => context.goNamed(RouteNames.createLeaderAnnouncement),
       );
     }
 

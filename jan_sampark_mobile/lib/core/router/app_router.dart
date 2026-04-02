@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../theme/app_colors.dart';
 import 'route_names.dart';
 import 'route_guards.dart';
 
@@ -31,6 +32,7 @@ import '../../features/leader/dashboard/screens/leader_home_screen.dart';
 
 // ── Corporator shell (stub — replaced in Module 17) ─
 import '../../features/corporator/dashboard/screens/corporator_home_screen.dart';
+import '../../features/corporator/campaigns/screens/pending_donations_screen.dart';
 
 // ── Notifications (stub — replaced in Module 20) ─
 import '../../features/notifications/screens/notifications_screen.dart';
@@ -453,6 +455,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       // ────────────────────────────────────────
 
       GoRoute(
+        path:    '/corporator/campaigns/:id/pending',
+        name:    RouteNames.pendingDonations,
+        builder: (_, state) => PendingDonationsScreen(
+          campaignId: state.pathParameters['id']!,
+        ),
+      ),
+
+      GoRoute(
         path:  '/notifications',
         name:  RouteNames.notifications,
         builder: (_, __) => const NotificationsScreen(),
@@ -716,7 +726,3 @@ class ComplaintDetailPlaceholder extends StatelessWidget {
   Widget build(BuildContext context) =>
       Scaffold(body: Center(child: Text('Complaint $id detail')));
 }
-
-// Imports needed inside app_router.dart
-import '../theme/app_colors.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';

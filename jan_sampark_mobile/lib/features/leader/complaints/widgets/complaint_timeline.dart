@@ -3,7 +3,7 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../../../../core/theme/app_dimensions.dart';
 import '../../../../core/utils/date_formatter.dart';
-import '../../dashboard/repositories/leader_complaint_repository.dart';
+import '../repositories/leader_complaint_repository.dart';
 
 /// Vertical audit trail timeline shown on complaint detail.
 class ComplaintTimeline extends StatelessWidget {

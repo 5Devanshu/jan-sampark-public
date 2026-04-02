@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../../../../core/theme/app_dimensions.dart';
-import '../../dashboard/repositories/leader_complaint_repository.dart';
+import '../repositories/leader_complaint_repository.dart';
 
 /// Bottom action bar on the complaint detail screen.
 /// Shows context-sensitive action buttons based on complaint status.

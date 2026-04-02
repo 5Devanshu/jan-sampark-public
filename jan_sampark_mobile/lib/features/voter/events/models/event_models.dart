@@ -73,7 +73,8 @@ class EventModel {
   bool get isDeadlinePassed {
     if (registrationDeadline == null) return false;
     final today = DateTime.now().toIso8601String().substring(0, 10);
-    return today > registrationDeadline!;
+    // Compare ISO-8601 date strings safely.
+    return registrationDeadline!.compareTo(today) < 0;
   }
 
   bool get canRegister =>

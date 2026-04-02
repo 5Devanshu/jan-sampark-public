@@ -56,7 +56,7 @@ class ProfileInfoSection extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: Text(title, style: AppTextStyles.labelMedium),
+                  child: Text(title, style: AppTextStyles.bodyMedium),
                 ),
                 if (onEdit != null)
                   TextButton.icon(

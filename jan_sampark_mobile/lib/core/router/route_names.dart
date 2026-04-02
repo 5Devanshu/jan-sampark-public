@@ -84,6 +84,7 @@ class RouteNames {
   static const String updateComplaintStatus = 'update-complaint-status';
   static const String escalateComplaint = 'escalate-complaint';
   static const String rejectComplaint = 'reject-complaint';
+  static const String reassignComplaint = 'reassign-complaint';
   static const String addComplaintNote = 'add-complaint-note';
   static const String groundVerification = 'ground-verification';
 
@@ -140,6 +141,7 @@ class RouteNames {
   static const String campaignManagement = 'campaign-management';
   static const String createCampaign = 'create-campaign';
   static const String corpCampaignDetail = 'corp-campaign-detail';
+  static const String pendingDonations = 'pending-donations';
   static const String donationVerification = 'donation-verification';
 
   // Corporator — Events

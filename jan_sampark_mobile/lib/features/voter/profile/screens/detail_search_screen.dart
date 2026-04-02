@@ -71,7 +71,7 @@ class _DetailSearchScreenState extends ConsumerState<DetailSearchScreen> {
       backgroundColor: AppColors.surfaceGrey,
       appBar: AppBar(
         title:   const Text('Search by Details'),
-        leading: BackButton(onPressed: () => context.pop()),
+        leading: BackButton(onPressed: () => Navigator.of(context).pop()),
       ),
       body: SafeArea(
         child: Column(
@@ -99,7 +99,10 @@ class _DetailSearchScreenState extends ConsumerState<DetailSearchScreen> {
                       controller: _nameCtrl,
                       label: 'Full Name *',
                       hint:  'As on voter ID',
-                      prefixIcon: Icons.person_outline,
+                      prefixIcon: const Icon(
+                        Icons.person_outline,
+                        size: AppDimensions.iconMD,
+                      ),
                       validator: (v) =>
                           (v?.trim().isEmpty ?? true) ? 'Name is required' : null,
                     ),
@@ -109,7 +112,10 @@ class _DetailSearchScreenState extends ConsumerState<DetailSearchScreen> {
                       controller: _stateCtrl,
                       label: 'State Code *',
                       hint:  'e.g. S13 for Maharashtra',
-                      prefixIcon: Icons.map_outlined,
+                      prefixIcon: const Icon(
+                        Icons.map_outlined,
+                        size: AppDimensions.iconMD,
+                      ),
                       textCapitalization: TextCapitalization.characters,
                       validator: (v) =>
                           (v?.trim().isEmpty ?? true) ? 'State code is required' : null,
@@ -120,7 +126,10 @@ class _DetailSearchScreenState extends ConsumerState<DetailSearchScreen> {
                       controller: _districtCtrl,
                       label: 'District *',
                       hint:  'ECI district code',
-                      prefixIcon: Icons.location_city_outlined,
+                      prefixIcon: const Icon(
+                        Icons.location_city_outlined,
+                        size: AppDimensions.iconMD,
+                      ),
                       validator: (v) =>
                           (v?.trim().isEmpty ?? true) ? 'District is required' : null,
                     ),
@@ -130,7 +139,10 @@ class _DetailSearchScreenState extends ConsumerState<DetailSearchScreen> {
                       controller: _captchaCtrl,
                       label: 'CAPTCHA Text *',
                       hint:  'Type what you see in the image',
-                      prefixIcon: Icons.shield_outlined,
+                      prefixIcon: const Icon(
+                        Icons.shield_outlined,
+                        size: AppDimensions.iconMD,
+                      ),
                       validator: (v) =>
                           (v?.trim().isEmpty ?? true) ? 'CAPTCHA is required' : null,
                     ),
@@ -141,7 +153,10 @@ class _DetailSearchScreenState extends ConsumerState<DetailSearchScreen> {
                       controller: _fatherNameCtrl,
                       label: "Father's / Husband's Name",
                       hint:  'Optional',
-                      prefixIcon: Icons.family_restroom_outlined,
+                      prefixIcon: const Icon(
+                        Icons.family_restroom_outlined,
+                        size: AppDimensions.iconMD,
+                      ),
                     ),
                     const SizedBox(height: 14),
 
@@ -152,7 +167,10 @@ class _DetailSearchScreenState extends ConsumerState<DetailSearchScreen> {
                             controller: _ageCtrl,
                             label: 'Age',
                             hint:  'Optional',
-                            prefixIcon: Icons.cake_outlined,
+                            prefixIcon: const Icon(
+                              Icons.cake_outlined,
+                              size: AppDimensions.iconMD,
+                            ),
                             keyboardType: TextInputType.number,
                           ),
                         ),

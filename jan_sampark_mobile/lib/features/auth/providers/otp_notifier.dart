@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/constants/app_constants.dart';
 import '../models/auth_models.dart';
 import '../repositories/auth_repository.dart';
+import '../../../core/exceptions/app_exception.dart';
 
 // ─────────────────────────────────────────────
 // State
@@ -162,4 +163,3 @@ final otpProvider =
   return OtpNotifier(ref.watch(authRepositoryProvider));
 });
 
-import '../../../core/exceptions/app_exception.dart';

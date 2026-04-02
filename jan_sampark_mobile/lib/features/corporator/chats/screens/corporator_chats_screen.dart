@@ -55,7 +55,7 @@ class _CorporatorChatsScreenState
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () =>
-            context.goNamed(RouteNames.corporatorCreateChat),
+            context.goNamed(RouteNames.corpCreateChat),
         backgroundColor: AppColors.primary,
         icon:  const Icon(Icons.add_rounded, color: Colors.white),
         label: Text('New Chat',
@@ -102,7 +102,7 @@ class _CorporatorChatsScreenState
         subtitle:    'Create community chats for your area voters.',
         actionLabel: 'Create Chat',
         onAction:    () =>
-            context.goNamed(RouteNames.corporatorCreateChat),
+            context.goNamed(RouteNames.corpCreateChat),
       );
     }
 
@@ -140,7 +140,7 @@ class _CorporatorChatsScreenState
           return ChatListTile(
             chat:  chat,
             onTap: () => context.goNamed(
-              RouteNames.corporatorChatRoom,
+              RouteNames.corpChatRoom,
               pathParameters: {'id': chat.id},
             ),
           );

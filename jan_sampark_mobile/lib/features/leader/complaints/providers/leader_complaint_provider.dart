@@ -2,6 +2,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/exceptions/app_exception.dart';
 import '../repositories/leader_complaint_repository.dart';
+import '../../../../core/network/api_response.dart';
 
 // ─────────────────────────────────────────────
 // Complaint List State
@@ -300,4 +301,3 @@ final complaintActionProvider = StateNotifierProvider
       ref.watch(leaderComplaintRepositoryProvider));
 });
 
-import '../../../../core/network/api_response.dart';

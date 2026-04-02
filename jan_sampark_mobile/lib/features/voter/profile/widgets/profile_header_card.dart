@@ -201,7 +201,7 @@ class _Chip extends StatelessWidget {
             Icon(icon, size: 11, color: AppColors.textOnPrimary),
             const SizedBox(width: 4),
             Text(label,
-                style: AppTextStyles.captionSmall.copyWith(
+                style: AppTextStyles.caption.copyWith(
                   color: AppColors.textOnPrimary,
                 )),
           ],
@@ -238,7 +238,7 @@ class _EpicChip extends StatelessWidget {
             const SizedBox(width: 4),
             Text(
               isVerified ? 'EPIC Verified' : 'Not Verified',
-              style: AppTextStyles.captionSmall.copyWith(
+              style: AppTextStyles.caption.copyWith(
                 color: AppColors.textOnPrimary,
                 fontWeight: FontWeight.w600,
               ),

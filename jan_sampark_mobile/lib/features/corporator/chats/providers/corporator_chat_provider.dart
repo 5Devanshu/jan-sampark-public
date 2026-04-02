@@ -2,21 +2,21 @@
 // repository pattern as the Leader chats.
 // The backend resolves scope from the JWT token.
 
-export '../../../leader/chats/providers/leader_chat_provider.dart'
-    show
-        createChatProvider,
-        CreateChatState,
-        CreateChatNotifier;
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../leader/chats/models/leader_chat_models.dart';
 import '../../../leader/chats/repositories/leader_chat_repository.dart';
 import '../../../voter/chats/models/chat_models.dart';
 import '../../../../core/exceptions/app_exception.dart';
 
-// ─────────────────────────────────────────────
-// Corporator Chat List (same shape, scoped by token)
-// ─────────────────────────────────────────────
+export '../../../leader/chats/providers/leader_chat_provider.dart'
+    show
+        createChatProvider,
+        CreateChatState,
+        CreateChatNotifier,
+        leaderChatRoomProvider,
+        LeaderChatRoomState;
+
+// ── Corporator Chat List (same shape, scoped by token)
 
 class CorporatorChatListState {
   const CorporatorChatListState({
@@ -36,8 +36,7 @@ class CorporatorChatListState {
   final String errorMessage;
 
   bool get hasError => errorMessage.isNotEmpty;
-  bool get isEmpty  =>
-      !isLoading && chats.isEmpty && !hasError;
+  bool get isEmpty  => !isLoading && chats.isEmpty && !hasError;
 
   CorporatorChatListState copyWith({
     List<ChatModel>? chats,
@@ -114,7 +113,3 @@ final corporatorChatListProvider = StateNotifierProvider
   return CorporatorChatListNotifier(
       ref.watch(leaderChatRepositoryProvider));
 });
-
-// Reuse leader chat room provider — works identically
-export '../../../leader/chats/providers/leader_chat_provider.dart'
-    show leaderChatRoomProvider, LeaderChatRoomState;

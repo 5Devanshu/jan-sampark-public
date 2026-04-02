@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/app_constants.dart';
 import '../../../../core/exceptions/app_exception.dart';
@@ -48,7 +49,7 @@ class CreateAnnouncementNotifier
   CreateAnnouncementNotifier(this._dio)
     : super(const CreateAnnouncementState());
 
-  final dio;
+  final Dio _dio;
 
   Future<bool> create({
     required String title,

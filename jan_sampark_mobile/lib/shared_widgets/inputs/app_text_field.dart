@@ -31,6 +31,7 @@ class AppTextField extends StatefulWidget {
     this.initialValue,
     this.keyboardType  = TextInputType.text,
     this.textInputAction = TextInputAction.next,
+    this.textCapitalization = TextCapitalization.none,
     this.validator,
     this.onChanged,
     this.onSubmitted,
@@ -56,6 +57,7 @@ class AppTextField extends StatefulWidget {
   final String? initialValue;
   final TextInputType keyboardType;
   final TextInputAction textInputAction;
+  final TextCapitalization textCapitalization;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
   final void Function(String)? onSubmitted;
@@ -97,6 +99,7 @@ class _AppTextFieldState extends State<AppTextField> {
           initialValue:    widget.initialValue,
           keyboardType:    widget.keyboardType,
           textInputAction: widget.textInputAction,
+          textCapitalization: widget.textCapitalization,
           obscureText:     widget.isPassword && _obscureText,
           readOnly:        widget.isReadOnly,
           enabled:         widget.isEnabled,

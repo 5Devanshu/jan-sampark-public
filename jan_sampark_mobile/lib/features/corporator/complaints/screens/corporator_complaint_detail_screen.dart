@@ -15,6 +15,7 @@ import '../../../leader/complaints/repositories/leader_complaint_repository.dart
 import '../../../leader/complaints/widgets/complaint_timeline.dart';
 import '../providers/corporator_complaint_provider.dart';
 import '../widgets/corporator_complaint_action_bar.dart';
+import '../../../leader/complaints/repositories/leader_complaint_repository.dart';
 
 class CorporatorComplaintDetailScreen extends ConsumerWidget {
   const CorporatorComplaintDetailScreen({
@@ -261,15 +262,15 @@ class _DetailContent extends ConsumerWidget {
           // ── Action bar ─────────────────────────
           CorporatorComplaintActionBar(
             complaint:   complaint,
-            onResolve: () => context.goNamed(
+            onResolve: () => context.pushNamed(
               RouteNames.resolveComplaint,
               pathParameters: {'id': complaintId},
             ).then((_) => _refresh(ref)),
-            onReject: () => context.goNamed(
-              RouteNames.corporatorRejectComplaint,
+            onReject: () => context.pushNamed(
+              RouteNames.rejectComplaint,
               pathParameters: {'id': complaintId},
             ).then((_) => _refresh(ref)),
-            onReassign: () => context.goNamed(
+            onReassign: () => context.pushNamed(
               RouteNames.reassignComplaint,
               pathParameters: {'id': complaintId},
             ).then((_) => _refresh(ref)),
@@ -507,5 +508,3 @@ class _NoteCard extends StatelessWidget {
     );
   }
 }
-
-import '../../../leader/complaints/repositories/leader_complaint_repository.dart';

@@ -328,7 +328,7 @@ class _VoterProfileScreenState extends ConsumerState<VoterProfileScreen> {
                     Center(
                       child: Text(
                         'Jan Sampark v1.0.0',
-                        style: AppTextStyles.captionSmall.copyWith(
+                        style: AppTextStyles.caption.copyWith(
                           color: AppColors.textDisabled,
                         ),
                       ),
@@ -422,7 +422,7 @@ class _EpicVerificationCard extends StatelessWidget {
                     isVerified
                         ? 'EPIC Card Verified ✓'
                         : 'Verify Your Voter ID Card',
-                    style: AppTextStyles.labelMedium.copyWith(
+                    style: AppTextStyles.bodyMedium.copyWith(
                       color: AppColors.white,
                     ),
                   ),

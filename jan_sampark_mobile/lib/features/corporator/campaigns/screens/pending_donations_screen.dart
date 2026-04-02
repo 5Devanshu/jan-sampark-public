@@ -8,6 +8,7 @@ import '../../../../shared_widgets/layout/app_scaffold.dart';
 import '../../../../shared_widgets/layout/empty_state_widget.dart';
 import '../../../voter/campaigns/models/campaign_models.dart';
 import '../providers/corporator_campaign_provider.dart';
+import '../../../../core/utils/extensions.dart';
 
 /// Full-screen pending donations list for a specific campaign.
 class PendingDonationsScreen extends ConsumerWidget {
@@ -276,4 +277,3 @@ class _DonationVerifyCard extends ConsumerWidget {
   }
 }
 
-import '../../../../core/utils/extensions.dart';

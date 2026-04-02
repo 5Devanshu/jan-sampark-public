@@ -65,7 +65,7 @@ class UpcomingEventCard extends StatelessWidget {
                     event.eventDate != null
                         ? DateFormat('MMM').format(event.eventDate!).toUpperCase()
                         : '—',
-                    style: AppTextStyles.captionSmall.copyWith(
+                    style: AppTextStyles.caption.copyWith(
                       color:       AppColors.textOnPrimary.withOpacity(0.8),
                       fontWeight:  FontWeight.w600,
                       letterSpacing: 1,
@@ -85,7 +85,7 @@ class UpcomingEventCard extends StatelessWidget {
                     event.eventDate != null
                         ? DateFormat('EEE').format(event.eventDate!).toUpperCase()
                         : '',
-                    style: AppTextStyles.captionSmall.copyWith(
+                    style: AppTextStyles.caption.copyWith(
                       color:       AppColors.textOnPrimary.withOpacity(0.8),
                       letterSpacing: 0.5,
                     ),
@@ -103,7 +103,7 @@ class UpcomingEventCard extends StatelessWidget {
                   children: [
                     Text(
                       event.title,
-                      style:    AppTextStyles.labelMedium,
+                      style:AppTextStyles.bodyMedium,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -180,7 +180,7 @@ class _Badge extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: AppTextStyles.captionSmall.copyWith(
+        style: AppTextStyles.caption.copyWith(
           color:      color,
           fontWeight: FontWeight.w600,
         ),

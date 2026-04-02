@@ -64,7 +64,7 @@ class MyComplaintsSummaryCard extends StatelessWidget {
                       children: [
                         Text(
                           'My Complaints',
-                          style: AppTextStyles.labelMedium,
+                          style: AppTextStyles.bodyMedium,
                         ),
                         Text(
                           '${summary.total} total filed',
@@ -172,7 +172,7 @@ class _StatusCount extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               label,
-              style: AppTextStyles.captionSmall.copyWith(color: text),
+              style: AppTextStyles.bodyMedium.copyWith(color: text),
               textAlign: TextAlign.center,
             ),
           ],

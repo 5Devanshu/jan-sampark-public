@@ -74,7 +74,7 @@ class _PollVoteScreenState extends ConsumerState<PollVoteScreen> {
           pathParameters: {'id': poll.id},
         );
       } else {
-        context.pop();
+        Navigator.of(context).pop();
       }
     } else {
       final error = ref.read(voteProvider).errorMessage;

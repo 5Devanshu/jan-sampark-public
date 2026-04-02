@@ -133,7 +133,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   void _onBack() {
     context.hideKeyboard();
     if (_currentStep == 1) {
-      context.pop();
+      Navigator.of(context).pop();
     } else {
       _goToStep(_currentStep - 1);
     }
@@ -154,12 +154,12 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
       gender:            _gender ?? 'other',
       dateOfBirth:       _dobCtrl.text.trim(),
       language:          _language ?? 'en',
-      religion:          _religion,
+      religion:          _religion ?? '',
       wardId:            _wardId!,
       areaId:            _areaId!,
       education:         _education,
       occupation:        _occupation,
-      annualIncomeRange: _incomeRange,
+      annualIncomeRange: _incomeRange ?? '',
       familyAdults: int.tryParse(_adultsCtrl.text),
       familyKids:   int.tryParse(_kidsCtrl.text),
     );

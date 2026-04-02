@@ -70,7 +70,7 @@ class EpicVerificationBanner extends StatelessWidget {
                   isProcessing
                       ? 'ID Verification In Progress'
                       : 'Verify Your Voter ID',
-                  style: AppTextStyles.labelMedium.copyWith(
+                  style: AppTextStyles.bodyMedium.copyWith(
                     color: isProcessing ? AppColors.primary : AppColors.warning,
                   ),
                 ),

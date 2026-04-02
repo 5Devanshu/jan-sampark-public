@@ -148,7 +148,7 @@ class _LeaderVotersScreenState extends ConsumerState<LeaderVotersScreen> {
           return _VoterTile(
             voter: v,
             onTap: () => context.goNamed(
-              RouteNames.leaderVoterDetail,
+              RouteNames.voterProfileView,
               pathParameters: {'id': v.id},
             ),
           );

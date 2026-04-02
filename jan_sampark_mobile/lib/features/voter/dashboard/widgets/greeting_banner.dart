@@ -156,7 +156,7 @@ class _InitialsCircle extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         initials,
-        style: AppTextStyles.labelMedium.copyWith(
+        style: AppTextStyles.bodyMedium.copyWith(
           color:      AppColors.textOnPrimary,
           fontSize:   20,
           fontWeight: FontWeight.w700,

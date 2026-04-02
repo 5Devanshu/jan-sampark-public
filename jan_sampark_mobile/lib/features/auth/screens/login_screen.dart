@@ -97,7 +97,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   children: [
                     // Back button
                     GestureDetector(
-                      onTap: () => context.pop(),
+                      onTap: () => Navigator.of(context).pop(),
                       child: Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
@@ -169,7 +169,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         focusNode:      _passwordFocus,
                         isPassword:     true,
                         textInputAction: TextInputAction.done,
-                        validator: Validators.required('Password'),
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Password is required.';
+                          }
+                          return null;
+                        },
                         onSubmitted: (_) => _onLogin(),
                         prefixIcon: const Icon(
                           Icons.lock_outline_rounded,

@@ -19,7 +19,7 @@ class CorporatorLeaderRepository extends BaseRepository {
   }) async {
     return safeCall(() async {
       final res = await dio.get(
-        AppConstants.endpointUsers,
+        AppConstants.endpointLeaders,
         queryParameters: {
           'role':      'leader',
           'page':      page,
@@ -42,7 +42,7 @@ class CorporatorLeaderRepository extends BaseRepository {
       String leaderId) async {
     return safeCall(() async {
       final res = await dio.get(
-          '${AppConstants.endpointUsers}/$leaderId');
+          '${AppConstants.endpointLeaders}/$leaderId');
       return CorporatorLeaderDetail.fromJson(
           res.data as Map<String, dynamic>);
     });
@@ -56,7 +56,7 @@ class CorporatorLeaderRepository extends BaseRepository {
       CreateLeaderRequest request) async {
     return safeCall(() async {
       final res = await dio.post(
-        AppConstants.endpointCorporatorLeaders,
+        AppConstants.endpointLeaders,
         data: request.toJson(),
       );
       return res.data as Map<String, dynamic>;
@@ -73,7 +73,7 @@ class CorporatorLeaderRepository extends BaseRepository {
   }) async {
     return safeCall(() async {
       final res = await dio.patch(
-        '${AppConstants.endpointUsers}/$leaderId/responsibilities',
+        '${AppConstants.endpointLeaders}/$leaderId/responsibilities',
         data: {'leader_responsibilities': responsibilities},
       );
       return res.data as Map<String, dynamic>;
@@ -90,7 +90,7 @@ class CorporatorLeaderRepository extends BaseRepository {
   }) async {
     return safeCall(() async {
       final res = await dio.patch(
-        '${AppConstants.endpointUsers}/$leaderId',
+        '${AppConstants.endpointLeaders}/$leaderId',
         data: {'is_active': isActive},
       );
       return res.data as Map<String, dynamic>;

@@ -3,6 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:file_picker/file_picker.dart';
 import '../constants/app_constants.dart';
+import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
+import '../theme/app_text_styles.dart';
+import '../theme/app_dimensions.dart';
 
 /// Result from any file pick or camera capture operation.
 class PickedFile {
@@ -150,10 +154,6 @@ class FilePickerHelper {
 ///
 /// Usage:
 ///   final file = await showImageSourceSheet(context);
-import 'package:flutter/material.dart';
-import '../theme/app_colors.dart';
-import '../theme/app_text_styles.dart';
-import '../theme/app_dimensions.dart';
 
 Future<PickedFile?> showImageSourceSheet(BuildContext context) async {
   return showModalBottomSheet<PickedFile?>(

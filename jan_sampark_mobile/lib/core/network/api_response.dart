@@ -1,3 +1,5 @@
+import '../exceptions/app_exception.dart';
+
 /// Typed wrapper for every API response.
 ///
 /// Every repository method returns ApiResponse<T>.
@@ -98,4 +100,3 @@ class ApiResponse<T> {
 // Bring AppException into scope here so
 // ApiResponse.errorMessage can reference it
 // ─────────────────────────────────────────────
-import '../exceptions/app_exception.dart';

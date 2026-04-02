@@ -3,6 +3,7 @@ import '../../../../core/exceptions/app_exception.dart';
 import '../../../voter/chats/models/chat_models.dart';
 import '../models/leader_chat_models.dart';
 import '../repositories/leader_chat_repository.dart';
+import '../../../../core/network/api_response.dart';
 
 // ─────────────────────────────────────────────
 // Chat List — same state shape as voter
@@ -376,4 +377,3 @@ final createChatProvider = StateNotifierProvider
       ref.watch(leaderChatRepositoryProvider));
 });
 
-import '../../../../core/network/api_response.dart';

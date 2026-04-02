@@ -67,7 +67,7 @@ class _CorporatorHelplineScreenState
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () =>
-            context.goNamed(RouteNames.corporatorAddHelpline),
+            context.goNamed(RouteNames.createHelpline),
         backgroundColor: AppColors.primary,
         icon:  const Icon(Icons.add_rounded, color: Colors.white),
         label: Text('Add Number',
@@ -116,7 +116,7 @@ class _CorporatorHelplineScreenState
             : 'Add local helpline numbers for your area.',
         actionLabel: 'Add Number',
         onAction:    () =>
-            context.goNamed(RouteNames.corporatorAddHelpline),
+            context.goNamed(RouteNames.createHelpline),
       );
     }
 

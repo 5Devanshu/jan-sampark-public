@@ -10,6 +10,7 @@ import '../../../../shared_widgets/badges/status_badge.dart';
 import '../../../../shared_widgets/badges/priority_badge.dart';
 import '../../../../shared_widgets/layout/section_header.dart';
 import '../../complaints/providers/leader_complaint_provider.dart';
+import '../../complaints/repositories/leader_complaint_repository.dart';
 
 /// Top 5 pending complaints shown on the Leader home screen.
 class AssignedComplaintsPreview extends ConsumerWidget {

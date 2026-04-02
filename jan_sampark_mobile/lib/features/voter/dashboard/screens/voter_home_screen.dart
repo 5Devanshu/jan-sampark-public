@@ -30,7 +30,7 @@ import '../../../../core/theme/app_text_styles.dart';
 import '../../../../core/theme/app_dimensions.dart';
 import '../../../../core/router/route_names.dart';
 import '../models/voter_dashboard_models.dart';
-import '../providers/voter_dashboard_provider.dart';
+import 'package:jan_sampark_mobile/features/voter/dashboard/providers/voter_dashboard_provider.dart';
 import '../widgets/greeting_banner.dart';
 import '../widgets/epic_verification_banner.dart';
 import '../widgets/quick_actions_grid.dart';

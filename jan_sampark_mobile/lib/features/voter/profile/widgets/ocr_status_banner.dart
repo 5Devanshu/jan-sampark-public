@@ -92,7 +92,7 @@ class OcrStatusBanner extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(title,
-                    style: AppTextStyles.labelMedium.copyWith(
+                    style: AppTextStyles.bodyMedium.copyWith(
                       color: iconColor,
                     )),
                 const SizedBox(height: 3),

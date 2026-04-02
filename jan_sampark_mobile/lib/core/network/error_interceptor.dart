@@ -49,6 +49,10 @@ class ErrorInterceptor extends Interceptor {
     final statusCode = err.response?.statusCode;
     final detail = _extractDetail(err.response);
 
+    if (statusCode != null && statusCode >= 500) {
+      return ServerException(detail, statusCode);
+    }
+
     return switch (statusCode) {
       ApiConstants.statusBadRequest => ValidationException(detail),
       ApiConstants.statusUnauthorized => UnauthorizedException(detail),
@@ -58,7 +62,6 @@ class ErrorInterceptor extends Interceptor {
       ApiConstants.statusTooLarge => FileTooLargeException(detail),
       ApiConstants.statusUnprocessable => ValidationException(detail),
       ApiConstants.statusTooManyRequests => RateLimitException(detail),
-      >= 500 => ServerException(detail, statusCode),
       _ => UnknownException(detail),
     };
   }

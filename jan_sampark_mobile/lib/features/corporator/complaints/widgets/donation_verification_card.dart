@@ -9,6 +9,7 @@ import '../../../../core/network/dio_client.dart';
 import '../../../../core/constants/app_constants.dart';
 import '../../../../core/utils/extensions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/utils/extensions.dart';
 import 'package:dio/dio.dart';
 
 // ─────────────────────────────────────────────
@@ -558,4 +559,3 @@ class _AmountColumn extends StatelessWidget {
   }
 }
 
-import '../../../../core/utils/extensions.dart';

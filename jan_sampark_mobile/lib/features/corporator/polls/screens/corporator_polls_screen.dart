@@ -54,7 +54,7 @@ class _CorporatorPollsScreenState
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () =>
-            context.goNamed(RouteNames.corporatorCreatePoll),
+            context.goNamed(RouteNames.createPoll),
         backgroundColor: AppColors.primary,
         icon:  const Icon(Icons.add_rounded, color: Colors.white),
         label: Text('Create Poll',
@@ -99,7 +99,7 @@ class _CorporatorPollsScreenState
         subtitle:    'Create a poll to gather voter opinions.',
         actionLabel: 'Create Poll',
         onAction:    () =>
-            context.goNamed(RouteNames.corporatorCreatePoll),
+            context.goNamed(RouteNames.createPoll),
       );
     }
 
@@ -149,7 +149,7 @@ class _CorporatorPollCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.goNamed(
-        RouteNames.corporatorPollResults,
+        RouteNames.corpPollResults,
         pathParameters: {'id': poll.id},
       ),
       child: Container(

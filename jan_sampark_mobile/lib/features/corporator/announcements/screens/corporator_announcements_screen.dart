@@ -55,7 +55,7 @@ class _CorporatorAnnouncementsScreenState
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => context
-            .goNamed(RouteNames.corporatorCreateAnnouncement),
+            .goNamed(RouteNames.createAnnouncement),
         backgroundColor: AppColors.primary,
         icon:  const Icon(Icons.add_rounded, color: Colors.white),
         label: Text('New Announcement',
@@ -112,7 +112,7 @@ class _CorporatorAnnouncementsScreenState
         subtitle:    'Create an announcement for your area.',
         actionLabel: 'Create Announcement',
         onAction:    () => context.goNamed(
-            RouteNames.corporatorCreateAnnouncement),
+            RouteNames.createAnnouncement),
       );
     }
 

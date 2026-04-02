@@ -2,6 +2,7 @@
 
 import 'dart:io';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/exceptions/app_exception.dart';
 import '../models/voter_profile_models.dart';
 import '../repositories/voter_profile_repository.dart';
 
@@ -13,7 +14,7 @@ class VoterProfileNotifier extends AsyncNotifier<VoterProfile> {
   @override
   Future<VoterProfile> build() =>
       ref.read(voterProfileRepositoryProvider).fetchProfile().then((r) {
-        if (r.hasError) throw r.error!;
+        if (r.isError) throw r.exception ?? Exception('Unknown error');
         return r.data!;
       });
 
@@ -21,7 +22,7 @@ class VoterProfileNotifier extends AsyncNotifier<VoterProfile> {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(
       () => ref.read(voterProfileRepositoryProvider).fetchProfile().then((r) {
-        if (r.hasError) throw r.error!;
+        if (r.isError) throw r.exception ?? Exception('Unknown error');
         return r.data!;
       }),
     );
@@ -31,7 +32,7 @@ class VoterProfileNotifier extends AsyncNotifier<VoterProfile> {
   Future<String?> updateProfile(ProfileUpdateRequest req) async {
     final repo = ref.read(voterProfileRepositoryProvider);
     final res  = await repo.updateProfile(req);
-    if (res.hasError) return res.error!.message;
+    if (res.isError) return _errorMessage(res.exception);
     state = AsyncValue.data(res.data!);
     return null;
   }
@@ -40,7 +41,7 @@ class VoterProfileNotifier extends AsyncNotifier<VoterProfile> {
   Future<String?> uploadPhoto(File imageFile) async {
     final repo = ref.read(voterProfileRepositoryProvider);
     final res  = await repo.uploadPhoto(imageFile);
-    if (res.hasError) return res.error!.message;
+    if (res.isError) return _errorMessage(res.exception);
     // Patch local state with new photo URL
     final current = state.valueOrNull;
     if (current != null) {
@@ -66,14 +67,14 @@ class OcrStatusNotifier extends AsyncNotifier<OcrJobStatus?> {
   Future<OcrJobStatus?> build() async {
     final repo = ref.read(voterProfileRepositoryProvider);
     final res  = await repo.fetchOcrStatus();
-    if (res.hasError) return null;
+    if (res.isError) return null;
     return res.data;
   }
 
   Future<String?> retry() async {
     final repo = ref.read(voterProfileRepositoryProvider);
     final res  = await repo.retryOcr();
-    if (res.hasError) return res.error!.message;
+    if (res.isError) return _errorMessage(res.exception);
     // Re-fetch status after queuing retry
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
@@ -135,10 +136,10 @@ class VerificationNotifier extends Notifier<VerificationState> {
   Future<void> loadCaptcha() async {
     state = state.copyWith(step: VerificationStep.loadingCaptcha, errorMessage: null);
     final res = await ref.read(_repo).fetchCaptcha();
-    if (res.hasError) {
+    if (res.isError) {
       state = state.copyWith(
         step:         VerificationStep.error,
-        errorMessage: res.error!.message,
+        errorMessage: _errorMessage(res.exception),
       );
       return;
     }
@@ -162,10 +163,10 @@ class VerificationNotifier extends Notifier<VerificationState> {
       state:     stateCode,
       captcha:   captchaText,
     );
-    if (res.hasError) {
+    if (res.isError) {
       state = state.copyWith(
         step:         VerificationStep.error,
-        errorMessage: res.error!.message,
+        errorMessage: _errorMessage(res.exception),
       );
       return;
     }
@@ -196,10 +197,10 @@ class VerificationNotifier extends Notifier<VerificationState> {
       age:        age,
       gender:     gender,
     );
-    if (res.hasError) {
+    if (res.isError) {
       state = state.copyWith(
         step:         VerificationStep.error,
-        errorMessage: res.error!.message,
+        errorMessage: _errorMessage(res.exception),
       );
       return;
     }
@@ -220,10 +221,10 @@ class VerificationNotifier extends Notifier<VerificationState> {
       stateCode:  result.stateCode  ?? '',
       eciData:    result.rawJson    ?? {},
     );
-    if (res.hasError) {
+    if (res.isError) {
       state = state.copyWith(
         step:         VerificationStep.error,
-        errorMessage: res.error!.message,
+        errorMessage: _errorMessage(res.exception),
       );
       return;
     }
@@ -239,3 +240,9 @@ final verificationProvider =
     NotifierProvider<VerificationNotifier, VerificationState>(
   VerificationNotifier.new,
 );
+
+String _errorMessage(Exception? e) {
+  if (e == null) return 'Something went wrong.';
+  if (e is AppException) return e.message;
+  return e.toString();
+}

@@ -216,7 +216,7 @@ class _ComplaintList extends StatelessWidget {
     }
 
     return RefreshIndicator(
-      onRefresh: onRetry,
+      onRefresh: () async => onRetry(),
       color:     AppColors.primary,
       child: ListView.separated(
         controller: scrollCtrl,
