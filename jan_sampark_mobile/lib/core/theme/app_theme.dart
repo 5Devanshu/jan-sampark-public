@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 import 'app_text_styles.dart';
 import 'app_dimensions.dart';
@@ -26,10 +27,12 @@ class AppTheme {
       onSurface: AppColors.textPrimary,
     );
 
+    final TextTheme textTheme = GoogleFonts.interTextTheme();
+
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
-      fontFamily: 'Inter',
+      textTheme: textTheme,
 
       // ── Scaffold ─────────────────────────────────
       scaffoldBackgroundColor: AppColors.surfaceGrey,

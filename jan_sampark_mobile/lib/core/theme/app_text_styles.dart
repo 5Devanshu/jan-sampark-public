@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 /// All text styles for Jan Sampark.
 ///
 /// Uses the Inter font family throughout.
 /// Every text in the app must reference one of these styles
-/// — never use raw TextStyle() directly.
+/// — never use raw GoogleFonts.inter() directly.
 ///
 /// Usage:
 ///   Text('Hello', style: AppTextStyles.heading1)
@@ -16,8 +17,7 @@ class AppTextStyles {
   // Display — large hero / splash text
   // ─────────────────────────────────────────────
 
-  static const TextStyle display = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle display = GoogleFonts.inter(
     fontSize: 28,
     fontWeight: FontWeight.w700,
     color: AppColors.textPrimary,
@@ -25,8 +25,7 @@ class AppTextStyles {
     letterSpacing: -0.5,
   );
 
-  static const TextStyle displayWhite = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle displayWhite = GoogleFonts.inter(
     fontSize: 28,
     fontWeight: FontWeight.w700,
     color: AppColors.textOnPrimary,
@@ -38,8 +37,7 @@ class AppTextStyles {
   // Headings
   // ─────────────────────────────────────────────
 
-  static const TextStyle heading1 = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle heading1 = GoogleFonts.inter(
     fontSize: 22,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
@@ -47,8 +45,7 @@ class AppTextStyles {
     letterSpacing: -0.3,
   );
 
-  static const TextStyle heading2 = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle heading2 = GoogleFonts.inter(
     fontSize: 18,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
@@ -56,16 +53,14 @@ class AppTextStyles {
     letterSpacing: -0.2,
   );
 
-  static const TextStyle heading3 = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle heading3 = GoogleFonts.inter(
     fontSize: 16,
     fontWeight: FontWeight.w500,
     color: AppColors.textPrimary,
     height: 1.4,
   );
 
-  static const TextStyle heading3White = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle heading3White = GoogleFonts.inter(
     fontSize: 16,
     fontWeight: FontWeight.w500,
     color: AppColors.textOnPrimary,
@@ -76,56 +71,49 @@ class AppTextStyles {
   // Body
   // ─────────────────────────────────────────────
 
-  static const TextStyle bodyLarge = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle bodyLarge = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w400,
     color: AppColors.textPrimary,
     height: 1.5,
   );
 
-  static const TextStyle bodyLargeMedium = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle bodyLargeMedium = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w500,
     color: AppColors.textPrimary,
     height: 1.5,
   );
 
-  static const TextStyle body = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle body = GoogleFonts.inter(
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: AppColors.textPrimary,
     height: 1.5,
   );
 
-  static const TextStyle bodyMedium = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle bodyMedium = GoogleFonts.inter(
     fontSize: 14,
     fontWeight: FontWeight.w500,
     color: AppColors.textPrimary,
     height: 1.5,
   );
 
-  static const TextStyle bodySemiBold = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle bodySemiBold = GoogleFonts.inter(
     fontSize: 14,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
     height: 1.5,
   );
 
-  static const TextStyle bodySecondary = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle bodySecondary = GoogleFonts.inter(
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: AppColors.textSecondary,
     height: 1.5,
   );
 
-  static const TextStyle bodyWhite = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle bodyWhite = GoogleFonts.inter(
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: AppColors.textOnPrimary,
@@ -136,24 +124,21 @@ class AppTextStyles {
   // Caption / Small
   // ─────────────────────────────────────────────
 
-  static const TextStyle caption = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle caption = GoogleFonts.inter(
     fontSize: 12,
     fontWeight: FontWeight.w400,
     color: AppColors.textSecondary,
     height: 1.5,
   );
 
-  static const TextStyle captionMedium = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle captionMedium = GoogleFonts.inter(
     fontSize: 12,
     fontWeight: FontWeight.w500,
     color: AppColors.textSecondary,
     height: 1.5,
   );
 
-  static const TextStyle captionPrimary = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle captionPrimary = GoogleFonts.inter(
     fontSize: 12,
     fontWeight: FontWeight.w500,
     color: AppColors.primary,
@@ -164,8 +149,7 @@ class AppTextStyles {
   // Label
   // ─────────────────────────────────────────────
 
-  static const TextStyle labelSmall = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle labelSmall = GoogleFonts.inter(
     fontSize: 11,
     fontWeight: FontWeight.w500,
     color: AppColors.textPrimary,
@@ -173,8 +157,7 @@ class AppTextStyles {
     letterSpacing: 0.3,
   );
 
-  static const TextStyle labelSmallSecondary = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle labelSmallSecondary = GoogleFonts.inter(
     fontSize: 11,
     fontWeight: FontWeight.w500,
     color: AppColors.textSecondary,
@@ -182,8 +165,7 @@ class AppTextStyles {
     letterSpacing: 0.3,
   );
 
-  static const TextStyle labelSmallWhite = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle labelSmallWhite = GoogleFonts.inter(
     fontSize: 11,
     fontWeight: FontWeight.w500,
     color: AppColors.textOnPrimary,
@@ -195,8 +177,7 @@ class AppTextStyles {
   // Button Labels
   // ─────────────────────────────────────────────
 
-  static const TextStyle buttonLarge = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle buttonLarge = GoogleFonts.inter(
     fontSize: 16,
     fontWeight: FontWeight.w600,
     color: AppColors.textOnPrimary,
@@ -204,8 +185,7 @@ class AppTextStyles {
     letterSpacing: 0.1,
   );
 
-  static const TextStyle buttonMedium = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle buttonMedium = GoogleFonts.inter(
     fontSize: 14,
     fontWeight: FontWeight.w600,
     color: AppColors.textOnPrimary,
@@ -213,8 +193,7 @@ class AppTextStyles {
     letterSpacing: 0.1,
   );
 
-  static const TextStyle buttonPrimary = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle buttonPrimary = GoogleFonts.inter(
     fontSize: 14,
     fontWeight: FontWeight.w600,
     color: AppColors.primary,
@@ -225,24 +204,21 @@ class AppTextStyles {
   // Form Field Labels / Errors
   // ─────────────────────────────────────────────
 
-  static const TextStyle fieldLabel = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle fieldLabel = GoogleFonts.inter(
     fontSize: 13,
     fontWeight: FontWeight.w500,
     color: AppColors.textPrimary,
     height: 1.4,
   );
 
-  static const TextStyle fieldError = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle fieldError = GoogleFonts.inter(
     fontSize: 12,
     fontWeight: FontWeight.w400,
     color: AppColors.error,
     height: 1.4,
   );
 
-  static const TextStyle fieldHelper = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle fieldHelper = GoogleFonts.inter(
     fontSize: 12,
     fontWeight: FontWeight.w400,
     color: AppColors.textSecondary,
@@ -253,8 +229,7 @@ class AppTextStyles {
   // Navigation Bar Labels
   // ─────────────────────────────────────────────
 
-  static const TextStyle navLabel = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle navLabel = GoogleFonts.inter(
     fontSize: 11,
     fontWeight: FontWeight.w500,
     height: 1.3,
@@ -264,24 +239,21 @@ class AppTextStyles {
   // Metric / Dashboard Numbers
   // ─────────────────────────────────────────────
 
-  static const TextStyle metricLarge = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle metricLarge = GoogleFonts.inter(
     fontSize: 32,
     fontWeight: FontWeight.w700,
     color: AppColors.textPrimary,
     height: 1.2,
   );
 
-  static const TextStyle metricMedium = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle metricMedium = GoogleFonts.inter(
     fontSize: 24,
     fontWeight: FontWeight.w700,
     color: AppColors.textPrimary,
     height: 1.2,
   );
 
-  static const TextStyle metricSmall = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle metricSmall = GoogleFonts.inter(
     fontSize: 18,
     fontWeight: FontWeight.w700,
     color: AppColors.primary,
@@ -292,16 +264,14 @@ class AppTextStyles {
   // App Bar Title
   // ─────────────────────────────────────────────
 
-  static const TextStyle appBarTitle = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle appBarTitle = GoogleFonts.inter(
     fontSize: 17,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
     height: 1.3,
   );
 
-  static const TextStyle appBarTitleWhite = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle appBarTitleWhite = GoogleFonts.inter(
     fontSize: 17,
     fontWeight: FontWeight.w600,
     color: AppColors.textOnPrimary,
@@ -312,8 +282,7 @@ class AppTextStyles {
   // Complaint Number / Code
   // ─────────────────────────────────────────────
 
-  static const TextStyle codeLabel = TextStyle(
-    fontFamily: 'Inter',
+  static final TextStyle codeLabel = GoogleFonts.inter(
     fontSize: 13,
     fontWeight: FontWeight.w600,
     color: AppColors.primary,
