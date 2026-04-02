@@ -6,6 +6,7 @@ import '../../../core/theme/ops_text_styles.dart';
 import '../../../core/network/ops_dio_client.dart';
 import '../../../core/constants/ops_constants.dart';
 import '../../../core/utils/ops_date_formatter.dart';
+import '../models/corporator_model.dart';
 import '../providers/corporators_provider.dart';
 
 class CorporatorDetailScreen extends ConsumerWidget {

@@ -5,7 +5,7 @@ import '../../../core/theme/ops_text_styles.dart';
 import '../../../core/network/ops_dio_client.dart';
 import '../../../core/constants/ops_constants.dart';
 import '../../../shared/widgets/ops_data_table.dart';
-import '../providers/masters_provider.dart';
+import '../providers/masters_providder.dart';
 
 class ComplaintCategoriesScreen extends ConsumerWidget {
   const ComplaintCategoriesScreen({super.key});

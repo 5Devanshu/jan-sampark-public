@@ -6,7 +6,7 @@ import '../../../core/network/ops_dio_client.dart';
 import '../../../core/constants/ops_constants.dart';
 import '../../../shared/widgets/ops_data_table.dart';
 import '../../../shared/widgets/ops_section_header.dart';
-import '../providers/masters_provider.dart';
+import '../providers/masters_providder.dart';
 
 class AreasScreen extends ConsumerWidget {
   const AreasScreen({super.key});
