@@ -1,134 +1,103 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../core/network/ops_dio_client.dart';
-import '../../../core/constants/ops_constants.dart';
+import '../models/ops_dashboard_models.dart';
+import '../repositories/ops_dashboard_repository.dart';
 
 // ─────────────────────────────────────────────
-// Models
+// Period selection
 // ─────────────────────────────────────────────
 
-class AreaSummary {
-  const AreaSummary({
-    required this.areaId,
-    required this.areaName,
-    required this.wardsCount,
-    required this.votersCount,
-    required this.complaintsTotal,
-    required this.complaintsResolved,
-    required this.complaintsEscalated,
-    required this.leadersCount,
+const opsPeriodOptions = {
+  '7d':  '7 Days',
+  '30d': '30 Days',
+  '90d': '90 Days',
+};
+
+final opsDashboardPeriodProvider =
+    StateProvider<String>((ref) => '30d');
+
+// ─────────────────────────────────────────────
+// Dashboard state
+// ─────────────────────────────────────────────
+
+class OpsDashboardState {
+  const OpsDashboardState({
+    this.data,
+    this.isLoading    = false,
+    this.errorMessage = '',
   });
 
-  final String areaId;
-  final String areaName;
-  final int    wardsCount;
-  final int    votersCount;
-  final int    complaintsTotal;
-  final int    complaintsResolved;
-  final int    complaintsEscalated;
-  final int    leadersCount;
+  final OpsDashboardData? data;
+  final bool              isLoading;
+  final String            errorMessage;
 
-  factory AreaSummary.fromJson(Map<String, dynamic> json) {
-    final c = json['complaints'] as Map<String, dynamic>? ?? {};
-    return AreaSummary(
-      areaId:               json['area_id']   as String? ?? '',
-      areaName:             json['area_name'] as String? ?? '',
-      wardsCount:           json['wards_count']   as int? ?? 0,
-      votersCount:          json['voters_count']  as int? ?? 0,
-      complaintsTotal:      c['total']            as int? ?? 0,
-      complaintsResolved:   c['resolved']         as int? ?? 0,
-      complaintsEscalated:  c['escalated']        as int? ?? 0,
-      leadersCount:         json['leaders_count'] as int? ?? 0,
+  bool get hasData  => data != null;
+  bool get hasError => errorMessage.isNotEmpty;
+
+  OpsDashboardState copyWith({
+    OpsDashboardData? data,
+    bool?             isLoading,
+    String?           errorMessage,
+  }) {
+    return OpsDashboardState(
+      data:         data         ?? this.data,
+      isLoading:    isLoading    ?? this.isLoading,
+      errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 }
 
-class RecentCorporator {
-  const RecentCorporator({
-    required this.id,
-    required this.fullName,
-    required this.mobile,
-    required this.areaName,
-    required this.wardsCount,
-    required this.isActive,
-  });
+// ─────────────────────────────────────────────
+// Notifier
+// ─────────────────────────────────────────────
 
-  final String id;
-  final String fullName;
-  final String mobile;
-  final String areaName;
-  final int    wardsCount;
-  final bool   isActive;
-
-  factory RecentCorporator.fromJson(Map<String, dynamic> json) {
-    final loc = json['location'] as Map<String, dynamic>? ?? {};
-    return RecentCorporator(
-      id:         json['id']        as String? ?? '',
-      fullName:   json['full_name'] as String? ?? '',
-      mobile:     json['mobile']    as String? ?? '',
-      areaName:   loc['area_name']  as String? ?? '',
-      wardsCount: json['wards_count'] as int? ?? 0,
-      isActive:   json['is_active'] as bool? ?? true,
-    );
+class OpsDashboardNotifier
+    extends StateNotifier<OpsDashboardState> {
+  OpsDashboardNotifier(this._repo)
+      : super(const OpsDashboardState()) {
+    load();
   }
-}
 
-class OpsDashboardData {
-  const OpsDashboardData({
-    required this.totalVoters,
-    required this.totalCorporators,
-    required this.activeComplaints,
-    required this.platformResolutionRate,
-    required this.voterGrowthPct,
-    required this.complaintGrowthPct,
-    required this.areaSummaries,
-    required this.recentCorporators,
-  });
+  final OpsDashboardRepository _repo;
+  String _period = '30d';
 
-  final int    totalVoters;
-  final int    totalCorporators;
-  final int    activeComplaints;
-  final double platformResolutionRate;
-  final double voterGrowthPct;
-  final double complaintGrowthPct;
-  final List<AreaSummary>      areaSummaries;
-  final List<RecentCorporator> recentCorporators;
+  Future<void> load({String? period}) async {
+    _period = period ?? _period;
+    state = state.copyWith(
+      isLoading:    true,
+      errorMessage: '',
+    );
 
-  factory OpsDashboardData.fromJson(Map<String, dynamic> json) {
-    final areas = (json['areas'] as List<dynamic>? ?? [])
-        .map((e) => AreaSummary.fromJson(e as Map<String, dynamic>))
-        .toList();
-    final corps = (json['recent_corporators'] as List<dynamic>? ?? [])
-        .map((e) =>
-            RecentCorporator.fromJson(e as Map<String, dynamic>))
-        .toList();
+    final response =
+        await _repo.fetchDashboard(period: _period);
 
-    return OpsDashboardData(
-      totalVoters:           json['total_voters']             as int?    ?? 0,
-      totalCorporators:      json['total_corporators']        as int?    ?? 0,
-      activeComplaints:      json['active_complaints']        as int?    ?? 0,
-      platformResolutionRate: _d(json['platform_resolution_rate']),
-      voterGrowthPct:        _d(json['voter_growth_pct']),
-      complaintGrowthPct:    _d(json['complaint_growth_pct']),
-      areaSummaries:         areas,
-      recentCorporators:     corps,
+    response.when(
+      success: (data) {
+        state = state.copyWith(
+          data:      data,
+          isLoading: false,
+        );
+      },
+      error: (e) {
+        state = state.copyWith(
+          isLoading:    false,
+          errorMessage: e.message,
+        );
+      },
     );
   }
 
-  static double _d(dynamic v) {
-    if (v is double) return v;
-    if (v is int)    return v.toDouble();
-    return 0.0;
-  }
+  void setPeriod(String period) => load(period: period);
 }
 
-// ─────────────────────────────────────────────
-// Provider
-// ─────────────────────────────────────────────
+final opsDashboardProvider = StateNotifierProvider
+    .autoDispose<OpsDashboardNotifier, OpsDashboardState>((ref) {
+  final notifier = OpsDashboardNotifier(
+      ref.watch(opsDashboardRepositoryProvider));
 
-final opsDashboardProvider =
-    FutureProvider.autoDispose<OpsDashboardData>((ref) async {
-  final dio = ref.watch(opsDioProvider);
-  final res = await dio.get(OpsConstants.endpointAnalytics);
-  return OpsDashboardData.fromJson(
-      res.data as Map<String, dynamic>);
+  // Reload when period changes
+  ref.listen<String>(opsDashboardPeriodProvider, (_, period) {
+    notifier.setPeriod(period);
+  });
+
+  return notifier;
 });

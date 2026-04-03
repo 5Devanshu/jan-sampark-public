@@ -1,47 +1,106 @@
 import 'package:flutter/material.dart';
 
-/// Ops Console uses the same blue palette as the mobile app
-/// but with a wider sidebar-friendly layout.
+/// All colour constants for Jan Sampark Ops Console.
+/// Blue and neutral corporate theme for admin/operations interface.
+///
+/// Never use raw hex values anywhere else in the codebase.
+/// Always import and use OpsColors.[token].
 class OpsColors {
   OpsColors._();
 
-  // ── Brand ─────────────────────────────────
-  static const primary      = Color(0xFF1D4ED8);
-  static const primaryDark  = Color(0xFF1E3A8A);
-  static const primaryLight = Color(0xFFEFF6FF);
-  static const primaryAccent = Color(0xFF3B82F6);
+  // ─────────────────────────────────────────────
+  // Primary Blue Palette
+  // ─────────────────────────────────────────────
 
-  // ── Sidebar ───────────────────────────────
-  static const sidebarBg       = Color(0xFF0F172A);
-  static const sidebarActive   = Color(0xFF1D4ED8);
-  static const sidebarHover    = Color(0xFF1E293B);
-  static const sidebarText     = Color(0xFFCBD5E1);
-  static const sidebarTextActive = Color(0xFFFFFFFF);
+  /// Main brand blue — buttons, headers, active nav
+  static const Color primary = Color(0xFF1A56DB);
 
-  // ── Surfaces ──────────────────────────────
-  static const white       = Color(0xFFFFFFFF);
-  static const surfaceGrey = Color(0xFFF8FAFC);
-  static const cardBg      = Color(0xFFFFFFFF);
-  static const borderGrey  = Color(0xFFE2E8F0);
+  /// Pressed / darker blue — button pressed states
+  static const Color primaryDark = Color(0xFF1E429F);
 
-  // ── Text ──────────────────────────────────
-  static const textPrimary   = Color(0xFF0F172A);
-  static const textSecondary = Color(0xFF64748B);
-  static const textDisabled  = Color(0xFF94A3B8);
-  static const textHint      = Color(0xFFCBD5E1);
+  /// Lightest blue — backgrounds, selection highlights
+  static const Color primaryLight = Color(0xFFEBF5FF);
 
-  // ── Status ────────────────────────────────
-  static const success      = Color(0xFF16A34A);
-  static const successLight = Color(0xFFF0FDF4);
-  static const error        = Color(0xFFDC2626);
-  static const errorLight   = Color(0xFFFEF2F2);
-  static const warning      = Color(0xFFD97706);
-  static const warningLight = Color(0xFFFFFBEB);
+  /// Secondary action blue — secondary buttons, accents
+  static const Color primaryAccent = Color(0xFF3F83F8);
 
-  // ── Shadows ───────────────────────────────
-  static const shadow = Color(0x0D000000);
+  /// Blue ring used on focused elements
+  static const Color primaryFocus = Color(0xFF76A9FA);
 
-  // ── Input ────────────────────────────────
-  static const inputBorder  = Color(0xFFCBD5E1);
-  static const inputFocused = Color(0xFF1D4ED8);
+  // ─────────────────────────────────────────────
+  // Neutral Palette
+  // ─────────────────────────────────────────────
+
+  /// Pure white — main background
+  static const Color white = Color(0xFFFFFFFF);
+
+  /// Very light grey — card and section backgrounds
+  static const Color surfaceGrey = Color(0xFFF9FAFB);
+
+  /// Card borders, dividers, subtle lines
+  static const Color borderGrey = Color(0xFFE5E7EB);
+
+  /// Input borders in resting state
+  static const Color inputBorder = Color(0xFFD1D5DB);
+
+  /// Darker grey for icons and secondary elements
+  static const Color iconGrey = Color(0xFF9CA3AF);
+
+  // ─────────────────────────────────────────────
+  // Text Colours
+  // ─────────────────────────────────────────────
+
+  /// Primary text — headlines, body copy, labels
+  static const Color textPrimary = Color(0xFF111827);
+
+  /// Secondary text — subtitles, metadata
+  static const Color textSecondary = Color(0xFF6B7280);
+
+  /// Disabled or muted text
+  static const Color textDisabled = Color(0xFF9CA3AF);
+
+  /// White text on coloured backgrounds
+  static const Color textOnPrimary = Color(0xFFFFFFFF);
+
+  /// Hint text inside inputs
+  static const Color textHint = Color(0xFFD1D5DB);
+
+  // ─────────────────────────────────────────────
+  // Semantic — Success
+  // ─────────────────────────────────────────────
+
+  static const Color success = Color(0xFF057A55);
+  static const Color successLight = Color(0xFFDEF7EC);
+  static const Color successBorder = Color(0xFF84E1BC);
+
+  // ─────────────────────────────────────────────
+  // Semantic — Warning
+  // ─────────────────────────────────────────────
+
+  static const Color warning = Color(0xFFC27803);
+  static const Color warningLight = Color(0xFFFDF6B2);
+  static const Color warningBorder = Color(0xFFFACA15);
+
+  // ─────────────────────────────────────────────
+  // Semantic — Error
+  // ─────────────────────────────────────────────
+
+  static const Color error = Color(0xFFE02424);
+  static const Color errorLight = Color(0xFFFDE8E8);
+  static const Color errorBorder = Color(0xFFF98080);
+
+  // ─────────────────────────────────────────────
+  // Semantic — Info
+  // ─────────────────────────────────────────────
+
+  static const Color info = Color(0xFF0EA5E9);
+  static const Color infoLight = Color(0xFFCFF0FE);
+  static const Color infoBorder = Color(0xFF7EE8F7);
+
+  // ─────────────────────────────────────────────
+  // Semantic — Escalation
+  // ─────────────────────────────────────────────
+
+  static const Color escalation = Color(0xFFFF5A1F);
+  static const Color escalationLight = Color(0xFFFFECE2);
 }

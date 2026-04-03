@@ -1,121 +1,191 @@
 import 'package:flutter/material.dart';
 import 'ops_colors.dart';
 
+/// All text styles for Jan Sampark Ops Console.
+///
+/// Uses the Inter font family throughout (Flutter default).
+/// Every text in the app must reference one of these styles
+/// — never use raw TextStyle() directly.
+///
+/// Usage:
+///   Text('Hello', style: OpsTextStyles.heading1)
 class OpsTextStyles {
   OpsTextStyles._();
 
-  static const _font = 'Inter';
+  // ─────────────────────────────────────────────
+  // Display — large hero / splash text
+  // ─────────────────────────────────────────────
 
-  static const display = TextStyle(
-    fontFamily: _font,
-    fontSize:   28,
+  static const TextStyle display = TextStyle(
+    fontSize: 28,
     fontWeight: FontWeight.w700,
-    color:      OpsColors.textPrimary,
+    color: OpsColors.textPrimary,
+    height: 1.25,
+    letterSpacing: -0.5,
   );
 
-  static const heading1 = TextStyle(
-    fontFamily: _font,
-    fontSize:   22,
+  static const TextStyle displayWhite = TextStyle(
+    fontSize: 28,
     fontWeight: FontWeight.w700,
-    color:      OpsColors.textPrimary,
+    color: OpsColors.textOnPrimary,
+    height: 1.25,
+    letterSpacing: -0.5,
   );
 
-  static const heading2 = TextStyle(
-    fontFamily: _font,
-    fontSize:   18,
+  // ─────────────────────────────────────────────
+  // Headings
+  // ─────────────────────────────────────────────
+
+  static const TextStyle heading1 = TextStyle(
+    fontSize: 22,
     fontWeight: FontWeight.w600,
-    color:      OpsColors.textPrimary,
+    color: OpsColors.textPrimary,
+    height: 1.3,
+    letterSpacing: -0.3,
   );
 
-  static const heading3 = TextStyle(
-    fontFamily: _font,
-    fontSize:   15,
+  static const TextStyle heading2 = TextStyle(
+    fontSize: 18,
     fontWeight: FontWeight.w600,
-    color:      OpsColors.textPrimary,
+    color: OpsColors.textPrimary,
+    height: 1.35,
+    letterSpacing: -0.2,
   );
 
-  static const body = TextStyle(
-    fontFamily: _font,
-    fontSize:   14,
+  static const TextStyle heading3 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: OpsColors.textPrimary,
+    height: 1.4,
+  );
+
+  static const TextStyle heading3White = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: OpsColors.textOnPrimary,
+    height: 1.4,
+  );
+
+  // ─────────────────────────────────────────────
+  // Body
+  // ─────────────────────────────────────────────
+
+  static const TextStyle bodyLarge = TextStyle(
+    fontSize: 15,
     fontWeight: FontWeight.w400,
-    color:      OpsColors.textPrimary,
+    color: OpsColors.textPrimary,
+    height: 1.5,
   );
 
-  static const bodyMedium = TextStyle(
-    fontFamily: _font,
-    fontSize:   14,
+  static const TextStyle bodyLargeMedium = TextStyle(
+    fontSize: 15,
     fontWeight: FontWeight.w500,
-    color:      OpsColors.textPrimary,
+    color: OpsColors.textPrimary,
+    height: 1.5,
   );
 
-  static const bodySecondary = TextStyle(
-    fontFamily: _font,
-    fontSize:   14,
+  static const TextStyle body = TextStyle(
+    fontSize: 14,
     fontWeight: FontWeight.w400,
-    color:      OpsColors.textSecondary,
+    color: OpsColors.textPrimary,
+    height: 1.5,
   );
 
-  static const caption = TextStyle(
-    fontFamily: _font,
-    fontSize:   12,
+  static const TextStyle bodyMedium = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: OpsColors.textPrimary,
+    height: 1.5,
+  );
+
+  static const TextStyle bodySmall = TextStyle(
+    fontSize: 12,
     fontWeight: FontWeight.w400,
-    color:      OpsColors.textSecondary,
+    color: OpsColors.textPrimary,
+    height: 1.5,
   );
 
-  static const captionMedium = TextStyle(
-    fontFamily: _font,
-    fontSize:   12,
+  static const TextStyle bodySmallMedium = TextStyle(
+    fontSize: 12,
     fontWeight: FontWeight.w500,
-    color:      OpsColors.textSecondary,
+    color: OpsColors.textPrimary,
+    height: 1.5,
   );
 
-  static const label = TextStyle(
-    fontFamily: _font,
-    fontSize:   12,
-    fontWeight: FontWeight.w500,
-    color:      OpsColors.textPrimary,
-  );
-
-  static const sidebarItem = TextStyle(
-    fontFamily: _font,
-    fontSize:   13,
-    fontWeight: FontWeight.w500,
-    color:      OpsColors.sidebarText,
-  );
-
-  static const sidebarItemActive = TextStyle(
-    fontFamily: _font,
-    fontSize:   13,
-    fontWeight: FontWeight.w600,
-    color:      OpsColors.sidebarTextActive,
-  );
-
-  static const tableHeader = TextStyle(
-    fontFamily: _font,
-    fontSize:   12,
-    fontWeight: FontWeight.w600,
-    color:      OpsColors.textSecondary,
-    letterSpacing: 0.5,
-  );
-
-  static const tableCell = TextStyle(
-    fontFamily: _font,
-    fontSize:   13,
+  static const TextStyle bodySmallWhite = TextStyle(
+    fontSize: 12,
     fontWeight: FontWeight.w400,
-    color:      OpsColors.textPrimary,
+    color: OpsColors.textOnPrimary,
+    height: 1.5,
   );
 
-  static const buttonPrimary = TextStyle(
-    fontFamily: _font,
-    fontSize:   13,
-    fontWeight: FontWeight.w600,
-    color:      OpsColors.white,
-  );
+  // ─────────────────────────────────────────────
+  // Button Text
+  // ─────────────────────────────────────────────
 
-  static const fieldLabel = TextStyle(
-    fontFamily: _font,
-    fontSize:   13,
+  static const TextStyle buttonLarge = TextStyle(
+    fontSize: 15,
     fontWeight: FontWeight.w500,
-    color:      OpsColors.textPrimary,
+    color: OpsColors.textOnPrimary,
+    height: 1.5,
+  );
+
+  static const TextStyle buttonMedium = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: OpsColors.textOnPrimary,
+    height: 1.5,
+  );
+
+  static const TextStyle buttonSmall = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    color: OpsColors.textOnPrimary,
+    height: 1.4,
+  );
+
+  // ─────────────────────────────────────────────
+  // Label / Badge
+  // ─────────────────────────────────────────────
+
+  static const TextStyle label = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    color: OpsColors.textSecondary,
+    height: 1.4,
+    letterSpacing: 0.3,
+  );
+
+  static const TextStyle labelSmall = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w600,
+    color: OpsColors.textSecondary,
+    height: 1.35,
+    letterSpacing: 0.2,
+  );
+
+  // ─────────────────────────────────────────────
+  // Hint / Caption
+  // ─────────────────────────────────────────────
+
+  static const TextStyle hint = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    color: OpsColors.textHint,
+    height: 1.5,
+  );
+
+  static const TextStyle caption = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    color: OpsColors.textSecondary,
+    height: 1.5,
+  );
+
+  static const TextStyle captionSmall = TextStyle(
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+    color: OpsColors.textDisabled,
+    height: 1.45,
   );
 }

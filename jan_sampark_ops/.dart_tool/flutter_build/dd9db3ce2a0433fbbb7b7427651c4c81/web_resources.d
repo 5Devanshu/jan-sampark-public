@@ -1,0 +1,1 @@
+:  /Users/dishajain/Desktop/politcial_frontend/jan-sampark-public/jan_sampark_ops/web/index.html
